@@ -8,6 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
     <title>Nails By Lee</title>
+    <link rel="shortcut icon" type="image/gif" href="{{asset('frontend/images/logo.png')}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Nails Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
@@ -20,12 +21,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="{{asset('css/font-awesome.css')}}" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
     <!--webfont-->
-    <link href='http://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="{{asset('frontend/js/jquery-1.11.1.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/bootstrap.js')}}"></script>
+
 </head>
-<body>
 <div class="top-nav navbar">
     <nav class="navScroll navbar-fixed-top">
             <div class="navbar-header logo col-md-offset-1">
@@ -35,7 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h1><a href="index.html">Nails By Lee</a></h1>
+                <h1><a href="{{ route('homepage') }}" class="logo">Nails By Lee</a></h1>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -43,17 +42,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="nav navbar-right" style="margin-right: 10px;">
                     <li><a href="{{ route('homepage') }}" class="link-kumya active scroll"><span data-letters="Home">Home</span></a></li>
                     <li><a href="{{ route('aboutus') }}" class="link-kumya"><span data-letters="About Us">About Us</span></a></li>
-                    <li><a href="portfolio.html" class="link-kumya"><span data-letters="Services">Services</span></a></li>
+                    <li><a href="{{ route('services') }}" class="link-kumya"><span data-letters="Services">Services</span></a></li>
                     <li><a href="{{ route('gallery') }}" class="link-kumya"><span data-letters="Gallery">Gallery</span></a></li>
-                    <li><a href="blog.html" class="link-kumya"><span data-letters="Polish Brands">Polish Brands</span></a></li>
+                    <li><a href="{{ route('polishbrands') }}" class="link-kumya"><span data-letters="Polish Brands">Polish Brands</span></a></li>
                     <li><a href="{{ route('giftcards') }}" class="link-kumya"><span data-letters="Gift Cards">Gift Cards</span></a></li>
-                    <li><a href="contact.html" class="link-kumya"><span data-letters="Contact">Contact</span></a></li>
+                    <li><a href="{{ route('contact') }}" class="link-kumya"><span data-letters="Contact">Contact</span></a></li>
                 </ul>
                 <div class="clearfix"> </div>
             </div>
     </nav>
 </div>
-
 <!-- content -->
     @yield('content')
 
@@ -61,11 +59,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <div class="col-md-6 grid_3">
             <h4>Address : </h4>
-            <p>On the other hand, we denounce with righteous</p>
+            <p>535 W SW Loop 323 #203 Tyler, TX 75701</p>
         </div>
         <div class="col-md-6 grid_3">
             <h4>Phones : </h4>
-            <p>+1 2587 469 5874, +1 4875 986 7845</p>
+            <p>(903) 939-0572</p>
         </div>
         <div class="clearfix"> </div>
     </div>
@@ -73,8 +71,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <a href="#"><i class="fa fa-facebook" aria-hidden="true" ></i><span>Facebook</span></a>
         <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
         <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram </span></a>
+        <a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span>Pinterest </span></a>
     </div>
-    <div class="copy"><p>Copyright © 2015 Nails. All Rights Reserved.Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p></div>
 </div>
 </body>
 </html>

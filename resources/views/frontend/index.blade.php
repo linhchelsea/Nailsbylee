@@ -4,18 +4,17 @@
 <div class="banner">
     <div class="container">
         <div class="banner_desc">
-            <h1>Sed ut perspiciatis<br>totam rem aperiam</h1>
-            <h2>mistaken idea of<br>denouncing pleasure</h2>
+            <h1>You nails will inspire</h1>
+            <h2>We will nail you<br>and you will like it.</h2>
         </div>
     </div>
 </div>
 <div class="grid_1">
     <div class="container">
         <h3 class="motiveColor">Welcome</h3>
-        <h4 class="motiveColor1">But I must explain to you how all this mistaken</h4>
-        <img src="{{asset('frontend/images/pic1.jpg')}}" class="img-responsive" alt=""/>
-        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-        <div class="btn_3"><a href="#" class="btn btn-default btn-arrow"><span>learn more</span></a></div>
+        <h4 class="motiveColor1">You wanna get a new look from us</h4>
+        <img src="{{asset('frontend/images/1.jpg')}}" class="img-responsive" alt=""/>
+        <p>A nail boutique with a special persona, bearing the real name, the true identity of a passionate and talented artist who created it-Ms. Lee. It’s not just a sound business built on foundation of high quality products, professional human touch, but above all, its constant nurture by love of its creator, its diversified team of dedicated techs and a team of professional management.</p>
     </div>
 </div>
 <!--- Slider Starts Here --->
@@ -50,22 +49,22 @@
                     <li>
                         <div class="slider-top">
                             <img src="{{asset('frontend/images/1.png')}}" class="img-responsive" alt=""/>
-                            <p>"Si vous voulez mon avis concernant l'extremite observee, il est necessaire d'etudier la globalite des solutions de bon sens, parce que la nature a horreur du vide."</p>
-                            <p class="below">-Salade de Banoui, Paris</p>
+                            <p>“Thanks for keeping this salon the cleanest one I’ve ever seen during my thirteen years as a Department Inspector.”</p>
+                            <p class="below">-A. L., Texas Department of Licensing and Regulation</p>
                         </div>
                     </li>
                     <li>
                         <div class="slider-top">
                             <img src="{{asset('frontend/images/2.png')}}" class="img-responsive" alt=""/>
-                            <p class="second-slide">"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."</p>
-                            <p class="below">-Salade de Banoui, Paris</p>
+                            <p class="second-slide">"Nails By Lee has the best services, I love it"</p>
+                            <p class="below">-Salade de Banoui</p>
                         </div>
                     </li>
                     <li>
                         <div class="slider-top">
-                            <img src="{{asset('frontend/images/1.png')}}" class="img-responsive" alt=""/>
-                            <p>"Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto."</p>
-                            <p class="below">-Salade de Banoui, Paris</p>
+                            <img src="{{asset('frontend/images/2.png')}}" class="img-responsive" alt=""/>
+                            <p class="second-slide">"Absolutely love each set I get! She's amazing at what she does! It's definitely worth it!"</p>
+                            <p class="below">-Salade de Banoui</p>
                         </div>
                     </li>
                 </ul>

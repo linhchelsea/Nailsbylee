@@ -8,5 +8,9 @@ Route::group(['namespace'=>'FrontEnd'], function (){
     Route::get('/aboutus','AboutController@index')->name('aboutus');
     Route::get('/gallery','GalleryController@index')->name('gallery');
     Route::get('/gift-cards','GiftCardsController@index')->name('giftcards');
+    Route::get('/polish-brands','PolishBrandsController@index')->name('polishbrands');
+    Route::get('/contact','ContactController@index')->name('contact');
+    Route::get('/services','ServicesController@index')->name('services');
+    Route::get('/service-detail','ServiceDetailController@index')->name('servicedetail');
 });
 Auth::routes();
