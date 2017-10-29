@@ -25,7 +25,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="text/javascript" src="{{asset('frontend/js/jquery-1.11.1.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/bootstrap.js')}}"></script>
 </head>
-<body>
 <div class="top-nav navbar">
     <nav class="navScroll navbar-fixed-top">
             <div class="navbar-header logo col-md-offset-1">
@@ -35,7 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h1><a href="index.html">Nails By Lee</a></h1>
+                <h1><a href="{{ route('homepage') }}">Nails By Lee</a></h1>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,15 +44,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a href="{{ route('aboutus') }}" class="link-kumya"><span data-letters="About Us">About Us</span></a></li>
                     <li><a href="portfolio.html" class="link-kumya"><span data-letters="Services">Services</span></a></li>
                     <li><a href="{{ route('gallery') }}" class="link-kumya"><span data-letters="Gallery">Gallery</span></a></li>
-                    <li><a href="blog.html" class="link-kumya"><span data-letters="Polish Brands">Polish Brands</span></a></li>
+                    <li><a href="{{ route('polishbrands') }}" class="link-kumya"><span data-letters="Polish Brands">Polish Brands</span></a></li>
                     <li><a href="{{ route('giftcards') }}" class="link-kumya"><span data-letters="Gift Cards">Gift Cards</span></a></li>
-                    <li><a href="contact.html" class="link-kumya"><span data-letters="Contact">Contact</span></a></li>
+                    <li><a href="{{ route('contact') }}" class="link-kumya"><span data-letters="Contact">Contact</span></a></li>
                 </ul>
                 <div class="clearfix"> </div>
             </div>
     </nav>
 </div>
-
 <!-- content -->
     @yield('content')
 
