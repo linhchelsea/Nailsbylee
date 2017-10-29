@@ -8,6 +8,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     font-family: 'Tangerine'; /*a name to be used later*/
     src: url('../font/Tangerine-Regular.ttf'); /*URL to font*/
 }
+@font-face {
+    font-family: 'Open Sans'; /*a name to be used later*/
+    src: url('../font/OpenSans-Regular.ttf'); /*URL to font*/
+}
 h4, h5, h6,
 h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
@@ -262,7 +266,7 @@ h4.motiveColor1{
 }
 .grid_1 p{
   color: #555;
-  font-size: 0.85em;
+  font-size: 1em;
   line-height: 1.8em;
   margin: 2em 0;
 }
