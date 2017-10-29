@@ -8,6 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
     <title>Nails By Lee</title>
+    <link rel="shortcut icon" type="image/gif" href="{{asset('frontend/images/logo.png')}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Nails Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
@@ -20,10 +21,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="{{asset('css/font-awesome.css')}}" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
     <!--webfont-->
-    <link href='http://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="{{asset('frontend/js/jquery-1.11.1.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/bootstrap.js')}}"></script>
+
 </head>
 <div class="top-nav navbar">
     <nav class="navScroll navbar-fixed-top">
