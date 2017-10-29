@@ -14,13 +14,13 @@
     <div style="margin-top: 90px;"></div>
     <div class="grid_4">
         <h3 class="motiveColor">Gallery</h3>
-        <h4 class="motiveColor1">But I must explain to you how all this mistaken</h4>
+        <h4 class="motiveColor1">You wanna get a new look from us</h4>
         <div class="container">
             <div class="about-grids">
                 <div class="col-sm-3 about-grid">
-                    <a href="{{asset("frontend/images/large.jpg")}}" title="pic2" rel="title234">
+                    <a href="{{asset("frontend/images/pic6.jpg")}}" title="pic2" rel="title234">
                         <div class="view view-first">
-                            <img src="{{asset('frontend/images/large.jpg')}}" class="img-responsive" alt=""/>
+                            <img src="{{asset('frontend/images/pic6.jpg')}}" class="img-responsive" alt=""/>
                             <div class="mask">
                                 <div class="info"></div>
                             </div>
@@ -28,7 +28,7 @@
                     </a>
                 </div>
                 <div class="col-sm-3 about-grid chocolat-parent">
-                    <a class="chocolat-image" href="{{asset("/frontend/images/pic3.jpg")}}" title="name" rel="title2">
+                    <a class="chocolat-image" href="{{asset("/frontend/images/pic1.jpg")}}" title="name" rel="title2">
                         <div class="view view-first">
                             <img src="{{asset("/frontend/images/pic1.jpg")}}" class="img-responsive" alt=""/>
                             <div class="mask">
@@ -38,9 +38,9 @@
                     </a>
                 </div>
                 <div class="col-sm-3 about-grid">
-                    <a href="{{asset("frontend/images/dung.jpg")}}" title="name" rel="title2">
+                    <a href="{{asset("frontend/images/pic3.jpg")}}" title="name" rel="title2">
                         <div class="view view-first">
-                            <img src="{{asset("frontend/images/dung.jpg")}}" class="img-responsive" alt=""/>
+                            <img src="{{asset("frontend/images/pic3.jpg")}}" class="img-responsive" alt=""/>
                             <div class="mask">
                                 <div class="info"></div>
                             </div>

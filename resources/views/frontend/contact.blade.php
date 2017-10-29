@@ -13,17 +13,16 @@
             <h2>How to find us</h2>
             <div class="col-md-9 map_left">
                 <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3150859.767904157!2d-96.62081048651531!3d39.536794757966845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1408111832978"> </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3372.2748943008!2d-95.31003194980421!3d32.30446771514467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8649cc7651d011eb%3A0xc836ccec9ab3467c!2s535+W+SW+Loop+323+%23203%2C+Tyler%2C+TX+75701!5e0!3m2!1svi!2s!4v1509270207131" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-md-3 contact_address">
-                <p>9870 St Vincent Place, <br>Glasgow, DC 45 Fr 45.</p>
+                <p>535 W SW Loop 323 #203 Tyler, TX 75701</p>
                 <dl>
                     <dt></dt>
-                    <dd>Freephone : <span> +1 800 254 2478</span></dd>
-                    <dd>Telephone : <span> +1 800 547 5478</span></dd>
-                    <dd>FAX : <span>+1 800 658 5784</span></dd>
-                    <dd>E-mail :&nbsp; <a href="mailto@example.com">info(at)nails.com</a></dd>
+                    <dd>Freephone : <span> (903) 939-0572</span></dd>
+                    <dd>Telephone : <span> (903) 939-0572</span></dd>
+                    <dd>E-mail :&nbsp; <a href="mailto@example.com">nailsbylee@gmail.com</a></dd>
                 </dl>
             </div>
         </div>

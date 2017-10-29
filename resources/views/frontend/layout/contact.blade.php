@@ -1,7 +1,7 @@
 <div class="grid_2">
     <div class="container">
         <h3 class="motiveColor">Contact</h3>
-        <h4 class="motiveColor1">But I must explain to you how all this mistaken</h4>
+        <h4 class="motiveColor1">Nail your occasion - Get nailed now!!</h4>
         <form>
             <input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
             <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">

@@ -34,7 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h1><a href="{{ route('homepage') }}">Nails By Lee</a></h1>
+                <h1><a href="{{ route('homepage') }}" class="logo">Nails By Lee</a></h1>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="nav navbar-right" style="margin-right: 10px;">
                     <li><a href="{{ route('homepage') }}" class="link-kumya active scroll"><span data-letters="Home">Home</span></a></li>
                     <li><a href="{{ route('aboutus') }}" class="link-kumya"><span data-letters="About Us">About Us</span></a></li>
-                    <li><a href="portfolio.html" class="link-kumya"><span data-letters="Services">Services</span></a></li>
+                    <li><a href="{{ route('services') }}" class="link-kumya"><span data-letters="Services">Services</span></a></li>
                     <li><a href="{{ route('gallery') }}" class="link-kumya"><span data-letters="Gallery">Gallery</span></a></li>
                     <li><a href="{{ route('polishbrands') }}" class="link-kumya"><span data-letters="Polish Brands">Polish Brands</span></a></li>
                     <li><a href="{{ route('giftcards') }}" class="link-kumya"><span data-letters="Gift Cards">Gift Cards</span></a></li>
@@ -59,11 +59,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <div class="col-md-6 grid_3">
             <h4>Address : </h4>
-            <p>On the other hand, we denounce with righteous</p>
+            <p>535 W SW Loop 323 #203 Tyler, TX 75701</p>
         </div>
         <div class="col-md-6 grid_3">
             <h4>Phones : </h4>
-            <p>+1 2587 469 5874, +1 4875 986 7845</p>
+            <p>(903) 939-0572</p>
         </div>
         <div class="clearfix"> </div>
     </div>
@@ -72,7 +72,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
         <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram </span></a>
     </div>
-    <div class="copy"><p>Copyright © 2015 Nails. All Rights Reserved.Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p></div>
 </div>
 </body>
 </html>
