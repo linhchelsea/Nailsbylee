@@ -13,7 +13,7 @@ class CreateTableInformation extends Migration
      */
     public function up()
     {
-        Schema::table('Information', function(Blueprint $table){
+        Schema::create('Information', function(Blueprint $table){
             $table->string('name');
             $table->string('address');
             $table->string('email');

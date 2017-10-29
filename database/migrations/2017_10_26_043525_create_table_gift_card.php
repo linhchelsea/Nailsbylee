@@ -13,7 +13,7 @@ class CreateTableGiftCard extends Migration
      */
     public function up()
     {
-        Schema::table('GiftCard', function(Blueprint $table){
+        Schema::create('GiftCard', function(Blueprint $table){
             $table->increments('id');
             $table->string('title');
             $table->string('image');
