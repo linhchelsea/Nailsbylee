@@ -71,6 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <a href="#"><i class="fa fa-facebook" aria-hidden="true" ></i><span>Facebook</span></a>
         <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
         <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram </span></a>
+        <a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span>Pinterest </span></a>
     </div>
 </div>
 </body>
