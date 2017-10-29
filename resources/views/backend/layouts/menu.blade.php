@@ -21,7 +21,7 @@
                 </li>
                 <li class="user-footer">
                     <div class="pull-left">
-                        <a href="" class="btn btn-warning">Profile</a>
+                        <a href="{{ route('profile') }}" class="btn btn-warning">Profile</a>
                     </div>
                     <div class="pull-right">
                         <a href="" class="btn btn-danger"
