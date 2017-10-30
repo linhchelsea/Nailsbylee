@@ -28,12 +28,12 @@
                             <!-- Name Field -->
                             <div class="col-sm-6">
                                 <label for="name">Username</label>
-                                <p class="form-control">fgdfhfgh</p>
+                                <p class="form-control">admin</p>
                             </div>
                             <!-- Email Field -->
                             <div class="col-sm-6">
                                 <label for="email">Email</label>
-                                <p class="form-control">hfghfghfghfghfhfh</p>
+                                <p class="form-control">admin@gmail.com</p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -74,7 +74,7 @@
                                 <label for="avatar">Avatar</label>
                                 <input class="form-control" name="avatar" type="file" id="avatar" onchange="viewAvatar(this)">
                                 <br>
-                                <p><img id="avartar-img-show" src="" alt="avatar" class="img-responsive" width="100px" height="100px"></p>
+                                <p><img id="avartar-img-show" src="{{ asset('/storage/avatars/avatar.png') }}" alt="avatar" class="img-responsive" width="200px" height="200px"></p>
                             </div>
                             
                             <div class="clearfix"></div>
@@ -82,8 +82,8 @@
                         <div class="form-group">
                             <!-- Submit Field -->
                             <div class="col-sm-12">
-                                <button type="submit" form="user_update" class="btn btn-primary" name="submit" value="Sửa"><i class="glyphicon glyphicon-edit"></i> Sửa</button>
-                                <button class="btn btn-default" type="button" onclick="window.location='{{ url()->previous() }}';" style="margin-left: 5px;"><i class="glyphicon glyphicon-remove"></i> Trở về</button>
+                                <button class="btn btn-warning" type="button" onclick="window.location='{{ url()->previous() }}';" style="margin-left: 5px;"><i class="fa fa-reply-all" aria-hidden="true"></i> Back</button>
+                                <button type="submit" form="user_update" class="btn btn-primary" name="submit" value="Update"><i class="glyphicon glyphicon-edit"></i> Update</button>
                             </div>
                         </div>
                     </form>

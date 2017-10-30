@@ -71,7 +71,7 @@
                             <!-- Submit Field -->
                             <div class="col-sm-12">
                                 <button class="btn btn-warning" type="button" onclick="window.location='{{ url()->previous() }}';" style="margin-left: 5px;"><i class="fa fa-reply-all" aria-hidden="true"></i> Back</button>
-                                <button type="submit" form="user" class="btn btn-primary" name="submit" value="Thêm"><i class="glyphicon glyphicon-plus"></i> Create</button>
+                                <button type="submit" form="user" class="btn btn-primary" name="submit" value="Create"><i class="glyphicon glyphicon-plus"></i> Create</button>
                             </div>
                         </div>
                     </form>
