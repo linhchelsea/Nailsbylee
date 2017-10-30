@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRelationService extends Migration
+class CreateRelationshipServiceDetailService extends Migration
 {
     /**
      * Run the migrations.

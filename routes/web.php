@@ -14,9 +14,6 @@ Route::group(['namespace'=>'FrontEnd'], function (){
     Route::get('/services','ServicesController@index')->name('services');
     Route::get('/service-detail','ServiceDetailController@index')->name('servicedetail');
 });
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
