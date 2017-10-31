@@ -48,10 +48,10 @@ function viewImg(img) {
     }, fileReader.readAsDataURL(img.files[0]);
 
 }
-function viewAvatar(img) {
+function viewImage(img) {
     var fileReader = new FileReader;
     fileReader.onload = function(img) {
-        var avartarShow = document.getElementById("avartar-img-show");
+        var avartarShow = document.getElementById("image-show");
 
         avartarShow.src = img.target.result
     }, fileReader.readAsDataURL(img.files[0])

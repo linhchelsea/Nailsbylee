@@ -96,5 +96,5 @@
     </section>
 
 </div>
-<script src="{{ asset('admin/js/function/editfurniture.js') }}" type="text/javascript"></script>
+<script src="{{ asset('backend.js') }}" tbackend.jsript"></script>
 @stop
