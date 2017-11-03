@@ -1,20 +1,85 @@
 @extends('frontend.layout.frontendapp')
 
 @section('content')
-<div class="banner">
-    <div class="container">
-        <div class="banner_desc">
-            <h1>You nails will inspire</h1>
-            <h2>We will nail you<br>and you will like it.</h2>
+    <div class="air-slider">
+        <div class="slide">
+            <img src="{{asset('frontend/images/index1.jpg')}}" alt="slide1"/>
+        </div>
+        <div class="slide">
+            <img src="{{asset('frontend/images/index2.jpg')}}" alt="slide2"/>
+        </div>
+        <div class="slide">
+            <img src="{{asset('frontend/images/index3.jpg')}}" alt="slide3"/>
         </div>
     </div>
-</div>
+    <script>
+        var slider = new airSlider({
+            autoPlay: true,
+            autoPlayTime: 5000,
+            width: '100%',
+            height: 'auto'
+        });
+    </script>
+
 <div class="grid_1">
+    <h3 class="motiveColor">Services</h3>
+    <h4 class="motiveColor1">You wanna get a new look from us</h4>
     <div class="container">
-        <h3 class="motiveColor">Welcome</h3>
-        <h4 class="motiveColor1">You wanna get a new look from us</h4>
-        <img src="{{asset('frontend/images/1.jpg')}}" class="img-responsive" alt=""/>
-        <p>A nail boutique with a special persona, bearing the real name, the true identity of a passionate and talented artist who created it-Ms. Lee. It’s not just a sound business built on foundation of high quality products, professional human touch, but above all, its constant nurture by love of its creator, its diversified team of dedicated techs and a team of professional management.</p>
+        <div class="row row-eq-height">
+            <div class="col-md-3 about-grid">
+                <a href="{{ route('servicedetail') }}" title="pic3" rel="title234">
+                    <div class="view view-first">
+                        <img src="{{asset('frontend/images/pic3.jpg')}}" class="img-responsive" alt=""/>
+                        <div class="mask">
+                            <div class="info"></div>
+                        </div>
+                    </div>
+                </a>
+                <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Manicure</a></h3>
+                <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+
+            </div>
+            <div class="col-md-3 about-grid">
+                <a class="chocolat-image" href="{{ route('servicedetail') }}" title="name" rel="title2">
+                    <div class="view view-first">
+                        <img src="{{asset("/frontend/images/pic1.jpg")}}" class="img-responsive" alt=""/>
+                        <div class="mask">
+                            <div class="info"></div>
+                        </div>
+                    </div>
+                </a>
+                <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Pedicure</a></h3>
+                <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer a Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+
+            </div>
+            <div class="col-md-3 about-grid">
+                <a href="{{ route('servicedetail') }}" title="name" rel="title2">
+                    <div class="view view-first">
+                        <img src="{{asset("frontend/images/pic4.jpg")}}" class="img-responsive" alt=""/>
+                        <div class="mask">
+                            <div class="info"></div>
+                        </div>
+                    </div>
+                </a>
+                <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Design</a></h3>
+                <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+
+            </div>
+            <div class="col-md-3 about-grid">
+                <a href="{{ route('servicedetail') }}" title="name" rel="title2">
+                    <div class="view view-first">
+                        <img src="{{asset("frontend/images/pic5.jpg")}}" class="img-responsive" alt=""/>
+                        <div class="mask">
+                            <div class="info"></div>
+                        </div>
+                    </div>
+                </a>
+                <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Services for Children</a></h3>
+                <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+            </div>
+            <div class="clearfix" style="margin-bottom: 20px;"> </div>
+        </div>
+        <div class="btn_3"><a href="#" class="btn btn-default"><span>Learn More</span></a></div>
     </div>
 </div>
 <!--- Slider Starts Here --->
@@ -55,14 +120,14 @@
                     </li>
                     <li>
                         <div class="slider-top">
-                            <img src="{{asset('frontend/images/2.png')}}" class="img-responsive" alt=""/>
+                            <img src="{{asset('frontend/images/pic2.jpg')}}" class="img-responsive" alt=""/>
                             <p class="second-slide">"Nails By Lee has the best services, I love it"</p>
                             <p class="below">-Salade de Banoui</p>
                         </div>
                     </li>
                     <li>
                         <div class="slider-top">
-                            <img src="{{asset('frontend/images/2.png')}}" class="img-responsive" alt=""/>
+                            <img src="{{asset('frontend/images/pic3.jpg')}}" class="img-responsive" alt=""/>
                             <p class="second-slide">"Absolutely love each set I get! She's amazing at what she does! It's definitely worth it!"</p>
                             <p class="below">-Salade de Banoui</p>
                         </div>
