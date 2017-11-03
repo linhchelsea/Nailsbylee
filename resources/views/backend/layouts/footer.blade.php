@@ -12,6 +12,7 @@
 
 		<script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
 		<script src="{{ asset('admin/js/app.min.js') }}"></script>
+		<script src="{{ asset('admin/js/function/backend.js') }}"></script>
 
 		
 
