@@ -4,12 +4,15 @@
     <div class="air-slider">
         <div class="slide">
             <img src="{{asset('frontend/images/index1.jpg')}}" alt="slide1"/>
+            <p>Image's Title 1 Image's Title 1 Image's Title 1 Image's Title 1</p>
         </div>
         <div class="slide">
             <img src="{{asset('frontend/images/index2.jpg')}}" alt="slide2"/>
+            <p>Image's Title 2 Image's Title 2 Image's Title 2 Image's Title 2</p>
         </div>
         <div class="slide">
             <img src="{{asset('frontend/images/index3.jpg')}}" alt="slide3"/>
+            <p>Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3</p>
         </div>
     </div>
     <script>

@@ -2,6 +2,7 @@
 .air-slider {
     position: relative;
     margin: 0 auto;
+    margin-bottom: 30px;
     min-height: 500px;
 }
 
@@ -9,7 +10,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    overflow: hidden;
+    /*overflow: hidden;*/
     opacity: 0;
     -webkit-transition: 1s ease all;
     transition: 1s ease all;
@@ -21,6 +22,16 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.air-slider .slide p {
+    width: 100%;
+    margin-top: -43px;
+    font-weight: bold;
+    opacity: 0.9;
+    text-align: center;
+    background-color:rgba(0, 0, 0, 0.5);
+    color: #FFD15E;
+    padding: 10px 0;
 }
 
 .air-slider .active-slide {
