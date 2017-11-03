@@ -2,6 +2,10 @@
 
 Route::group(['prefix'=> 'admin','namespace'=>'BackEnd'],function (){
     Route::resource('users', 'UserController');
+    Route::resource('gallery', 'GalleryController');
+    Route::resource('gift-card', 'GiftCardController');
+    Route::resource('home-image', 'HomeImageController');
+
     Route::get('about-us', 'AboutUsController@index')->name('about-us');
     Route::put('about-us', 'AboutUsController@update')->name('aboutus-update');
     Route::post('about-us', 'AboutUsController@aboutUsSaveVideo')->name('aboutUsSaveVideo');
