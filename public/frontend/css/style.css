@@ -1007,6 +1007,7 @@ ul.text-list{
     background-color: #7B0E0B;
     color: #FFD15E;
     padding: 15px 0;
+    margin-top: 20px;
 }
 .footer-list{
     text-align: center;
@@ -1368,7 +1369,7 @@ h4.motiveColor1 {
         margin-top: 0.3em;
     }
     .footer-list li{
-        margin: 5px 0;
+        margin: 10px 0;
         border-right: none;
         display: block;
         vertical-align: middle;
@@ -1871,8 +1872,3 @@ nav.navScroll a.buy{
         float: left;
     }
 }
-
-
-
-
-
