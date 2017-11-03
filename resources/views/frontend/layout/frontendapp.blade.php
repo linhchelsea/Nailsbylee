@@ -15,15 +15,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link href="{{asset('frontend/css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css' />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Custom Theme files -->
     <link href="{{asset('frontend/css/style.css')}}" rel='stylesheet' type='text/css' />
     <link href="{{asset('css/font-awesome.css')}}" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
     <!--webfont-->
+
     <script type="text/javascript" src="{{asset('frontend/js/jquery-1.11.1.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/bootstrap.js')}}"></script>
-
+    <!-- Home image slide -->
+    <link rel="stylesheet" href="{{asset('frontend/css/air-slider.min.css')}}">
+    <script src="{{asset('frontend/js/air-slider.min.js')}}"></script>
 </head>
 <div class="top-nav navbar">
     <nav class="navScroll navbar-fixed-top">
@@ -39,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="overflow-y: visible;">
-                <ul class="nav navbar-right" style="margin-right: 10px;">
+                <ul class="nav navbar-right">
                     <li><a href="{{ route('homepage') }}" class="link-kumya active scroll"><span data-letters="Home">Home</span></a></li>
                     <li><a href="{{ route('aboutus') }}" class="link-kumya"><span data-letters="About Us">About Us</span></a></li>
                     <li><a href="{{ route('services') }}" class="link-kumya"><span data-letters="Services">Services</span></a></li>
@@ -55,23 +59,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- content -->
     @yield('content')
 
-<div class="address">
+<div class="footer">
     <div class="container">
-        <div class="col-md-6 grid_3">
-            <h4>Address : </h4>
-            <p>535 W SW Loop 323 #203 Tyler, TX 75701</p>
-        </div>
-        <div class="col-md-6 grid_3">
-            <h4>Phones : </h4>
-            <p>(903) 939-0572</p>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-    <div class="footer-bottom">
-        <a href="#"><i class="fa fa-facebook" aria-hidden="true" ></i><span>Facebook</span></a>
-        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
-        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram </span></a>
-        <a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span>Pinterest </span></a>
+        <ul class="footer-list">
+            <li><i class="fa fa-map-marker fa-lg" aria-hidden="true" style="padding-right: 10px"></i>535 W SW Loop 323 #203 Tyler, TX 75701</li>
+            <li><i class="fa fa-phone-square fa-lg" aria-hidden="true" style="padding-right: 10px"></i>+(903) 939-0572</li>
+            <li><i class="fa fa-envelope fa-lg" aria-hidden="true" style="padding-right: 10px"></i>nailsbylee@gmail.com</li>
+            <li style="border-right: none;">
+                <div class="footer-bottom">
+                    <a href="#"><i class="fa fa-facebook" aria-hidden="true" ></i><span>Facebook</span></a>
+                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram </span></a>
+                    <a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span>Pinterest </span></a>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 </body>

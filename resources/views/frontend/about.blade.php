@@ -21,12 +21,13 @@
                     Ultimately, our philosophical approach is this—we are not the owners of Nails By Lee; but You, our loyal patrons, are the very true owners. We are just a team of professional techs and management who have dedicated more than six days per week to welcome and serve each patron with our skillful hands, our knowledgeable heads and most importantly, our loving hearts.<br>
                     As our patrons, you are not just our priority concern, and our business partners, but you have become very essential part of our daily life. You have journeyed with us for so many years— some have journeyed to the last day of your wonderful life. You don’t just come and go, but you have remained in our humble hearts every single day of our lives.</p>
             </div>
-            {{--<div class="col-md-3 grid_5">--}}
-                {{--<h5>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment.</h5>--}}
-                {{--<h6>-denouncing pleasure</h6>--}}
-            {{--</div>--}}
+            <div style="text-align: center;">
+            <video controls id="about_video">
+                <source src="Paraffin Wax Treatment (Happy Nails).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            </div>
             <div class="clearfix"> </div>
         </div>
     </div>
-    @include('frontend.layout.contact')
 @endsection

@@ -17,7 +17,7 @@
         <h4 class="motiveColor1">You wanna get a new look from us</h4>
         <div class="container">
             <div class="about-grids">
-                <div class="col-sm-3 about-grid">
+                <div class="col-md-3 about-grid gallery">
                     <a href="{{asset("frontend/images/pic6.jpg")}}" title="pic2" rel="title234">
                         <div class="view view-first">
                             <img src="{{asset('frontend/images/pic6.jpg')}}" class="img-responsive" alt=""/>
@@ -27,7 +27,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-3 about-grid chocolat-parent">
+                <div class="col-md-3 about-grid gallery">
                     <a class="chocolat-image" href="{{asset("/frontend/images/pic1.jpg")}}" title="name" rel="title2">
                         <div class="view view-first">
                             <img src="{{asset("/frontend/images/pic1.jpg")}}" class="img-responsive" alt=""/>
@@ -37,7 +37,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-3 about-grid">
+                <div class="col-md-3 about-grid gallery">
                     <a href="{{asset("frontend/images/pic3.jpg")}}" title="name" rel="title2">
                         <div class="view view-first">
                             <img src="{{asset("frontend/images/pic3.jpg")}}" class="img-responsive" alt=""/>
@@ -47,7 +47,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-3 about-grid">
+                <div class="col-md-3 about-grid gallery">
                     <a href="{{asset("frontend/images/pic5.jpg")}}" title="name" rel="title2">
                         <div class="view view-first">
                             <img src="{{asset("frontend/images/pic5.jpg")}}" class="img-responsive" alt=""/>
@@ -58,7 +58,7 @@
                     </a>
                 </div>
                 <div class="clearfix"> </div>
-                <div class="col-sm-3 about-grid">
+                <div class="col-md-3 about-grid gallery">
                     <a href="{{asset("frontend/images/pic2.jpg")}}" title="name" rel="title2">
                         <div class="view view-first">
                             <img src="{{asset("frontend/images/pic2.jpg")}}" class="img-responsive" alt=""/>
@@ -68,7 +68,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-3 about-grid">
+                <div class="col-md-3 about-grid gallery">
                     <a href="{{asset("/frontend/images/pic3.jpg")}}" title="name" rel="title2">
                         <div class="view view-first">
                             <img src="{{asset("/frontend/images/pic3.jpg")}}" class="img-responsive" alt=""/>
@@ -78,7 +78,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-3 about-grid">
+                <div class="col-md-3 about-grid gallery">
                     <a href="{{asset("frontend/images/pic4.jpg")}}" title="name" rel="title2">
                         <div class="view view-first">
                             <img src="{{asset("frontend/images/pic4.jpg")}}" class="img-responsive" alt=""/>
@@ -88,7 +88,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-3 about-grid">
+                <div class="col-md-3 about-grid gallery">
                     <a href="{{asset("frontend/images/pic5.jpg")}}" title="name" rel="title2">
                         <div class="view view-first">
                             <img src="{{asset("frontend/images/pic5.jpg")}}" class="img-responsive" alt=""/>
