@@ -14,7 +14,7 @@ class CreateTableAboutUs extends Migration
     public function up()
     {
         Schema::create('AboutUs', function(Blueprint $table){
-           $table->string('detail');
+           $table->text('detail');
            $table->string('image');
 
         });
