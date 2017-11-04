@@ -13,7 +13,7 @@
         <div class="box box-primary">
             <div class="box-header with-border" style="background-color: #c4e3f3;" >
                 <h3 style="margin: 0px 5px; color: #0d6496;">
-                    INFORMATION
+                    UPDATE HOME IMAGE
                 </h3>
             </div>
             <div class="box-body">
@@ -24,22 +24,14 @@
                     <div class="alert alert-success"><p><strong>{{ Session::get('success') }}</strong></p></div>
                 @endif
                 <div class="row">
-                    <form method="POST" action="{{ route('aboutus-update') }}" accept-charset="UTF-8" id="about-us" class="aboutForm" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('home-image.update',$homeImage->id) }}" accept-charset="UTF-8" id="homeImageUpdate" class="homeImageForm" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="PUT">
                         <div class="form-group">
-                            <!-- Image Field -->
+                            <!-- Title Field -->
                             <div class="col-sm-10 col-lg-offset-1">
-                                <label for="video"><h3>VIDEO</h3></label>
-                                <video width="100%" controls class="video-play" id="myVideo">
-                                    <source src="{{ asset('storage/videos/'.$aboutUs->video) }}" type="video/mp4">
-                                    Your browser does not support HTML5 video.
-                                </video>
-                                <div style="font-size: 50px; color: #cccccc; text-align: center;">
-                                    <a href="#" data-toggle="modal" data-target="#myModalUpload" title="Upload Media" style="color: #30394A">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> Change new video
-                                    </a>
-                                </div>
+                                <label for="title"><h3>TITLE</h3></label>
+                                <input class="form-control" name="title" type="text" id="title" value="{{ $homeImage->title }}">
                             </div>
 
                             <div class="clearfix"></div>
@@ -48,25 +40,17 @@
                             <!-- Image Field -->
                             <div class="col-sm-10 col-lg-offset-1">
                                 <label for="image"><h3>IMAGE</h3></label>
-                                <p><img id="image-show" src="{{ asset('/storage/aboutUs/'.$aboutUs->image) }}" alt="image" class="img-responsive" width="100%"></p>
-                                <label for="image">Choose image from your computer</label>
                                 <input class="form-control" name="image" type="file" id="image" onchange="viewImage(this)">
+                                <p><img id="image-show" src="{{ asset('/storage/home-image/'.$homeImage->name) }}" alt="image" class="img-responsive" width="100%"></p>
                                 <br>
                             </div>
 
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group">
-                            <!-- Detail Field -->
-                            <div class="col-sm-10 col-lg-offset-1">
-                                <textarea class="form-control" name="detail" id="intro" rows="4" cols="20">{{ $aboutUs->detail }}</textarea>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="form-group">
                             <!-- Submit Field -->
                             <div class="col-sm-10 col-lg-offset-1">
-                                <button type="submit" form="about-us" class="btn btn-success" name="submit" value="SAVE"><i class="glyphicon glyphicon-edit"></i> SAVE</button>
+                                <button type="submit" form="homeImageUpdate" class="btn btn-success" name="submit" value="SAVE"><i class="glyphicon glyphicon-edit"></i> SAVE</button>
                             </div>
                             <div class="clearfix"></div>
                         </div>

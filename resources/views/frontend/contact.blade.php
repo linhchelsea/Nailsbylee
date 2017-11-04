@@ -29,14 +29,18 @@
     </div>
     <div class="contact_grid">
         <div class="container">
-            <form>
+            @if(Session::has('success'))
+                <div class="alert alert-success"><p><strong>{{ Session::get('success') }}</strong></p></div>
+            @endif
+            <form method="post" action="{{ route('contactStore') }}" accept-charset="UTF-8">
+                {{ csrf_field() }}
                 <div class="col-sm-12 col-md-4 left_grid">
-                    <input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-                    <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-                    <input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+                    <input type="text" class="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+                    <input type="text" class="text" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+                    <input type="text" class="text" name="Phone" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}">
                 </div>
                 <div class="col-sm-12 col-md-8 right_grid">
-                    <textarea value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+                    <textarea name="Message" value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
                 </div>
                 <div class="form-submit1">
                     <input name="submit" type="submit" id="submit" value="Send Message">
