@@ -265,7 +265,7 @@ img.arrow-img {
 h3.motiveColor{
   position: relative;
   text-align: center;
-  width:40%;
+  width:100%;
   margin: 0 auto;
   font-size: 6em;
     letter-spacing: 2px;
@@ -276,18 +276,20 @@ h3.motiveColor{
 h3.motiveColor:before {
   content: "";
   position: absolute;
+    margin: 0 auto;
   top: -19px;
   left: 0;
-  width: 100%;
+  width: 40%;
   right: 0;
   border-bottom: 2px solid #f3f3f3;
 }
 h3.motiveColor:after {
   content: "";
   position: absolute;
+    margin: 0 auto;
   top: -15px;
   left: 0;
-  width: 100%;
+  width: 40%;
   right: 0;
   border-bottom: 1px solid #f3f3f3;
 }
@@ -1389,7 +1391,6 @@ h4.motiveColor1 {
 }
 h3.motiveColor {
   font-size: 4em;
-  width:40%;
 }
 h4.motiveColor1 {
   font-size: 2em;
@@ -1522,7 +1523,6 @@ p.service_desc {
 }
 h3.motiveColor {
   font-size: 1.4em;
-  width: 40%;
 }
 .grid_1 p {
   font-size: 0.8125em;
