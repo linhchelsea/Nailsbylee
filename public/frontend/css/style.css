@@ -1875,3 +1875,22 @@ nav.navScroll a.buy{
         float: left;
     }
 }
+
+/*Pagination*/
+.pagination li span{
+    background: none !important;
+    border: none;
+}
+.pagination li a{
+    background: none !important;
+    color: #7C0F08;
+    border: none;
+}
+.pagination .disabled span{
+    color: #7C0F08 !important;
+}
+.pagination .active span{
+    background: #7C0F08 !important;
+    color: #FFD15E !important;
+    border-radius: 5px;
+}
