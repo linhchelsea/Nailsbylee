@@ -1223,6 +1223,9 @@ h4.motiveColor1 {
   font-size: 2em;
   margin-bottom:0.5em;
 }
+    .grid_5 h2 {
+        font-size: 3em;
+    }
 .col-md-6.grid_3 {
   margin-bottom: 2em;
 }
@@ -1354,7 +1357,7 @@ h4.motiveColor1 {
   font-size: 2.5em;
 }
 .grid_5 h2 {
-  font-size: 3.5em;
+  font-size: 2.5em;
 }
 .typography h2 {
   font-size: 3em;
@@ -1596,7 +1599,7 @@ p.service_desc {
   font-size:12px;
 }
 .grid_5 h2 {
-  font-size: 3em;
+  font-size: 2em;
 }
 .grid_5 h3 {
   font-size: 1.5em;
