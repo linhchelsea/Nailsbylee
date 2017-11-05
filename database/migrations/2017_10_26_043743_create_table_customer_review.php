@@ -16,7 +16,7 @@ class CreateTableCustomerReview extends Migration
         Schema::create('CustomerReview', function(Blueprint $table){
             $table->increments('id');
             $table->string('name');
-            $table->string('content');
+            $table->text('content');
             $table->string('image');
 
         });

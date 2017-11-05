@@ -44,13 +44,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="overflow-y: visible;">
                 <ul class="nav navbar-right">
-                    <li><a href="{{ route('homepage') }}" class="link-kumya active scroll"><span data-letters="Home">Home</span></a></li>
-                    <li><a href="{{ route('aboutus') }}" class="link-kumya"><span data-letters="About Us">About Us</span></a></li>
-                    <li><a href="{{ route('services') }}" class="link-kumya"><span data-letters="Services">Services</span></a></li>
-                    <li><a href="{{ route('gallery') }}" class="link-kumya"><span data-letters="Gallery">Gallery</span></a></li>
-                    <li><a href="{{ route('polishbrands') }}" class="link-kumya"><span data-letters="Polish Brands">Polish Brands</span></a></li>
-                    <li><a href="{{ route('giftcards') }}" class="link-kumya"><span data-letters="Gift Cards">Gift Cards</span></a></li>
-                    <li><a href="{{ route('contact') }}" class="link-kumya"><span data-letters="Contact">Contact</span></a></li>
+                    <li><a href="{{ route('homepage') }}" class="link-kumya scroll {{ Request::is('/')? 'active' : '' }}"><span data-letters="Home">Home</span></a></li>
+                    <li><a href="{{ route('aboutus') }}" class="link-kumya {{ Request::is('aboutus')? 'active' : '' }}"><span data-letters="About Us">About Us</span></a></li>
+                    <li><a href="{{ route('services') }}" class="link-kumya {{ Request::is(['services','service-detail'])? 'active' : '' }}"><span data-letters="Services">Services</span></a></li>
+                    <li><a href="{{ route('gallery') }}" class="link-kumya {{ Request::is('gallery')? 'active' : '' }}"><span data-letters="Gallery">Gallery</span></a></li>
+                    <li><a href="{{ route('polishbrands') }}" class="link-kumya {{ Request::is('polish-brands')? 'active' : '' }}"><span data-letters="Polish Brands">Polish Brands</span></a></li>
+                    <li><a href="{{ route('giftcards') }}" class="link-kumya {{ Request::is('gift-cards')? 'active' : '' }}"><span data-letters="Gift Cards">Gift Cards</span></a></li>
+                    <li><a href="{{ route('contact') }}" class="link-kumya {{ Request::is('contact')? 'active' : '' }}"><span data-letters="Contact">Contact</span></a></li>
                 </ul>
                 <div class="clearfix"> </div>
             </div>
