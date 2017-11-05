@@ -10,22 +10,20 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    /*overflow: hidden;*/
     opacity: 0;
     -webkit-transition: 1s ease all;
     transition: 1s ease all;
-    /*background: #ffd668;*/
 }
-
 .air-slider .slide img {
     position: relative;
     width: 100%;
-    height: 100%;
+    height:100%;
     object-fit: cover;
 }
 .air-slider .slide p {
+    position: absolute;
     width: 100%;
-    margin-top: -43px;
+    bottom: 0px;
     font-weight: bold;
     opacity: 0.9;
     text-align: center;
@@ -66,4 +64,47 @@
     outline: none;
     cursor: pointer;
     font-weight: bold
+}
+
+/*Responsiable*/
+@media (max-width: 1150px) {
+    .air-slider{
+        min-height: 442px;
+    }
+}
+@media (max-width: 1000px) {
+    .air-slider{
+        min-height: 385px;
+    }
+}
+@media (max-width: 850px) {
+    .air-slider{
+        min-height: 326px;
+    }
+    .air-slider .slide p{
+        font-size: 14px;
+    }
+}
+@media (max-width: 700px) {
+    .air-slider{
+        min-height: 269px;
+    }
+}
+@media (max-width: 550px) {
+    .air-slider{
+        min-height: 211px;
+    }
+    .air-slider .slide p{
+        font-size: 12px;
+    }
+}
+@media (max-width: 400px) {
+    .air-slider{
+        min-height: 153px;
+    }
+}
+@media (max-width: 300px) {
+    .air-slider{
+        min-height: 115px;
+    }
 }
