@@ -70,7 +70,7 @@
                             </tbody>
                         </table>
                         <br>
-                        <button class="btn btn-warning" type="button" onclick="window.location='{{ route('adcontact.index') }}';" style="margin-top: 15px;"><i class="glyphicon glyphicon-remove"></i> BACK</button>
+                        <button class="btn btn-warning" type="button" onclick="window.location='{{ url()->previous() }}';" style="margin-top: 15px;"><i class="glyphicon glyphicon-remove"></i> BACK</button>
                         
                     </div>
                 </div>

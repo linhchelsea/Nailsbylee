@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use App\Contact;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('backend.users.index');
+        $users = User::where('isAdmin','=',false)
+            ->orderBy('id','DESC')
+            ->paginate(10);
+        return view('backend.users.index')->with('users',$users);
     }
 
     /**
@@ -35,7 +45,34 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->fullname;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->isAdmin = $request->isAdmin;
+        $password_confirmation = $request->password_confirmation;
+        if($user->password != $password_confirmation){
+            $request->session()->flash('fail','Password and Password Confirm are not the same!');
+            return redirect()->route('users.create');
+        }
+        //kiem tra email co bi trong khong
+        $user_checkEmail = User::where('email','=',$user->email)->first();
+        if($user_checkEmail != null){
+            $request->session()->flash('fail', 'Email was used by another user');
+            return redirect()->back();
+        }
+        if($user->isAdmin > 1 || $user->isAdmin < 0){
+            $request->session()->flash('fail', 'Position is invalid!');
+            return redirect()->back();
+        }
+        $user->password = bcrypt($request->password);
+        $user->avatar = 'avatar.png';
+        if($user->save()) {
+            $request->session()->flash('success', 'New user was created successfully!');
+        }else{
+            $request->session()->flash('fail', 'New user was created unsuccessfully!');
+        }
+        return redirect()->route('users.index');
     }
 
     /**
@@ -46,7 +83,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('backend.users.show');
+        $user = User::findOrFail($id);
+        return view('backend.users.show',compact('user'));
     }
 
     /**
@@ -57,7 +95,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('backend.users.edit');
+        $user = User::findOrFail($id);
+
+        return view('backend.users.edit')->with('user',$user);
     }
 
     /**
@@ -69,7 +109,44 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        //Lay thong tin tu form
+        $user->name = $request->fullname;
+        $user->isAdmin = $request->isAdmin;
+        if($user->isAdmin > 1 || $user->isAdmin < 0){
+            $request->session()->flash('fail', 'Position is invalid!');
+            return redirect()->back();
+        }
+        if($request->password != null){
+            if($request->password != $request->password_confirmation){
+                $request->session()->flash('fail','Password and Password Confirm are not the same!');
+                return redirect()->back();
+            }
+            $user->password = bcrypt($request->password);
+        }
+        if($request->file('avatar') != null){
+
+            if($user->avatar != 'avatar.png'){
+                //Xoa anh cu~
+                File::delete('storage/avatars/'.$user->avatar);
+            }
+            //Up anh moi
+            $image = $request->file('avatar')->store('public/avatars');
+            $arr_filename = explode("/",$image);
+            $filename = end($arr_filename);
+        }else{
+            $filename = $user->avatar;
+        }
+
+        $user->avatar = $filename;
+
+        if($user->save()) {
+            $request->session()->flash('success', 'User was updated successfully!');
+        }else{
+            $request->session()->flash('fail', 'User was updated successfully!');
+        }
+        return redirect()->route('users.index');
     }
 
     /**
@@ -78,9 +155,33 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        if($id === 1){
+            $request->session()->flash('fail', 'Can not delete Administrator!');
+            return redirect()->route('users.index');
+        }
+        $user = User::findOrFail($id);
+
+        //chuyen reply contact sang cho admin
+        $contacts = Contact::where('idUser','=',$id)->get();
+        if (count($contacts) > 0){
+            foreach ($contacts as $contact){
+                $contact->idUser = 1;
+                $contact->save();
+            }
+        }
+        if($user->avatar != 'avatar.png'){
+            //Xoa anh trong folder
+            File::delete('storage/avatars/'.$user->avatar);
+        }
+        //Xoa record trong database
+        if($user->delete()){
+            $request->session()->flash('success', 'User was deleted successfully!');
+        }else{
+            $request->session()->flash('success', 'User was deleted unsuccessfully!');
+        }
+        return redirect()->route('users.index');
     }
 
 

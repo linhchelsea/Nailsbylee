@@ -49,9 +49,9 @@
                                         <meta name="csrf-token" content="{{ csrf_token() }}">
                                         <div class="reply_{{ $item->id }}">
                                         @if($item->reply == 0)
-                                                Waiting...
+                                            <a href="javascript:void(0)" class="btn btn-danger reply"onclick="replyContact({{$item->id}});">WAITING...</a>
                                         @else
-                                        <span style="font-weight: bold; color: green;">Replied</span>
+                                            <span class="btn btn-success reply">REPLIED</span>
                                         @endif
                                         </div>
                                     </td>
@@ -60,10 +60,10 @@
                                             {{ csrf_field() }}
                                             <input name="_method" type="hidden" value="DELETE">
                                             <div class='btn-group'>
-                                                <a href="{{ route('adcontact.show',$item->id) }}" class='btn btn-default btn-xs'>
+                                                <a href="{{ route('adcontact.show',$item->id) }}" class='btn btn-warning'>
                                                     <i class="glyphicon glyphicon-eye-open"></i>
                                                 </a>
-                                                <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm(&#039;You want to remove this contact?&#039;)">
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm(&#039;You want to remove this contact?&#039;)">
                                                     <i class="glyphicon glyphicon-trash"></i>
                                                 </button>
                                             </div>

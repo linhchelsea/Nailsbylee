@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\File;
 
 class HomeImageController extends Controller
 {
-
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $homeImages = HomeImage::paginate(5);
