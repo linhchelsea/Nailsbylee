@@ -17,88 +17,37 @@
         <h4 class="motiveColor1">You wanna get a new look from us</h4>
         <div class="container">
             <div class="about-grids">
-                <div class="col-md-3 about-grid gallery">
-                    <a href="{{asset("frontend/images/pic6.jpg")}}" title="pic2" rel="title234">
-                        <div class="view view-first">
-                            <img src="{{asset('frontend/images/pic6.jpg')}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
+                @if(count($galleries) > 0)
+                    <?php $i = 1; ?>
+                    @foreach($galleries as $gallery)
+                        <div class="col-md-3 about-grid gallery">
+                            <a href="{{(empty($gallery->image)) ? asset('images/noimage-public.png')  : asset('storage/gallery/'.$gallery->image)}}" title="{{$gallery->title}}">
+                                <div class="view view-first">
+                                    @if(empty($gallery->image))
+                                        <img src="{{asset('images/noimage-public.png')}}" class="img-responsive" alt="noImage"/>
+                                    @else
+                                        <img src="{{asset('storage/gallery/'.$gallery->image)}}" class="img-responsive" alt=""/>
+                                    @endif
+                                    <div class="mask">
+                                        <div class="info"></div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-md-3 about-grid gallery">
-                    <a class="chocolat-image" href="{{asset("/frontend/images/pic1.jpg")}}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("/frontend/images/pic1.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 about-grid gallery">
-                    <a href="{{asset("frontend/images/pic3.jpg")}}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("frontend/images/pic3.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 about-grid gallery">
-                    <a href="{{asset("frontend/images/pic5.jpg")}}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("frontend/images/pic5.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="clearfix"> </div>
-                <div class="col-md-3 about-grid gallery">
-                    <a href="{{asset("frontend/images/pic2.jpg")}}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("frontend/images/pic2.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 about-grid gallery">
-                    <a href="{{asset("/frontend/images/pic3.jpg")}}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("/frontend/images/pic3.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 about-grid gallery">
-                    <a href="{{asset("frontend/images/pic4.jpg")}}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("frontend/images/pic4.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 about-grid gallery">
-                    <a href="{{asset("frontend/images/pic5.jpg")}}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("frontend/images/pic5.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="clearfix"></div>
+                        @if ($i%4 == 0)
+                            <div class="clearfix"> </div>
+                        @endif
+                    @endforeach
+                @else
+                    <div class="container">
+                        <h3 style="font-family: 'Tangerine', cursive; font-size: 3em;">No Images here!!</h3>
+                    </div>
+                @endif
+            </div>
+        </div>
+        <div class="container clearfix">
+            <div class="pagination-sm no-margin pull-right">
+                {{ $galleries->links() }}
             </div>
         </div>
     </div>

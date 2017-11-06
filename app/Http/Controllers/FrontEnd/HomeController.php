@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
-use App\IndexImage;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\ParentCat;
-use App\Information;
+use App\HomeImage;
+use App\CustomerReview;
+use App\Service;
+
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        $homeImages = HomeImage::get();
+        $customerReviews = CustomerReview::get();
+        $services = Service::where('atHome','=',1)->take(4)->get();
+        return view('frontend.index', compact("homeImages", "customerReviews", 'services'));
     }
 }

@@ -39,7 +39,11 @@
                                         <td class="text-center" style="width: 20%">{{ $review->name }}</td>
                                         <td style="width: 40%">{{ $review->content }}</td>
                                         <td class="text-center">
-                                            <img src="{{ asset('/storage/reviews/'.$review->image) }}" alt="image" id="customerImage">
+                                            @if(empty($review->image))
+                                                <img src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="customerImage">
+                                            @else
+                                                <img src="{{ asset('/storage/reviews/'.$review->image) }}" alt="image" id="customerImage">
+                                            @endif
                                         </td>
                                         <td class="text-center">
                                             <form method="POST" action="{{ route('review.destroy', $review->id) }}" accept-charset="UTF-8">

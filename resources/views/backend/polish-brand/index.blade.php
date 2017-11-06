@@ -44,7 +44,7 @@
                                         <td class="text-center" style="width: 20%">{{ $brand->price }}</td>
                                         <td class="text-center">
                                             @if(empty($brand->image))
-                                                <img src="{{ asset('/storage/polishbrand/noimage.png') }}" alt="noimage" id="noimage" width="300px" height="150px">
+                                                <img src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="300px" height="150px">
                                             @else
                                                 <img src="{{ asset('/storage/polishbrand/'.$brand->image) }}" alt="image" id="polishbrand" width="300px" height="150px">
                                             @endif

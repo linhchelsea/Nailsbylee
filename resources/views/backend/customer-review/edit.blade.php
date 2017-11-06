@@ -44,7 +44,13 @@
                                     <label for="image">Choose one photo of customer</label>
                                     <input class="form-control" name="image" type="file" id="image" onchange="viewImage(this)">
                                     <br>
-                                    <p><img id="image-show" src="{{ asset('/storage/reviews/'.$review->image) }}" alt="avatar" class="img-responsive" width="200px" height="200px"></p>
+                                    <p>
+                                        @if(empty($review->image))
+                                            <img id="image-show" src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="200px" height="200px">
+                                        @else
+                                            <img id="image-show" src="{{ asset('/storage/reviews/'.$review->image) }}" alt="avatar" class="img-responsive" width="200px" height="200px">
+                                        @endif
+                                    </p>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

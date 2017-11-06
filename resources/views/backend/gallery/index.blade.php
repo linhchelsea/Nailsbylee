@@ -37,7 +37,11 @@
                                     <tr>
                                         <td class="text-center" style="width: 50%">{{ $image->title }}</td>
                                         <td class="text-center">
-                                            <img src="{{ asset('/storage/gallery/'.$image->image) }}" alt="image" width="200px">
+                                            @if(empty($image->image))
+                                                <img src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="200px">
+                                            @else
+                                                <img src="{{ asset('/storage/gallery/'.$image->image) }}" alt="image" width="200px">
+                                            @endif
                                         </td>
                                         <td class="text-center">
                                             <form method="POST" action="{{ route('gallery.destroy', $image->id) }}" accept-charset="UTF-8">

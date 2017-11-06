@@ -53,7 +53,7 @@
                                     <input class="form-control" name="image" type="file" id="image" onchange="viewImage(this)">
                                     <br>
                                     @if (empty($polishbrand->image))
-                                        <p><img id="image-show" src="{{ asset('/storage/polishbrand/noimage.png') }}" alt="avatar" class="img-responsive" width="300px" height="150px"></p>
+                                        <p><img id="image-show" src="{{ asset('images/noimage-admin.png') }}" alt="avatar" class="img-responsive" width="300px" height="150px"></p>
                                     @else
                                         <p><img id="image-show" src="{{ asset('/storage/polishbrand/'.$polishbrand->image) }}" alt="avatar" class="img-responsive" width="300px" height="150px"></p>
                                     @endif

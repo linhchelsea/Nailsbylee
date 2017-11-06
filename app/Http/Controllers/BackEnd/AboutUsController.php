@@ -31,7 +31,6 @@ class AboutUsController extends Controller
                 //Xoa video cu~
                 File::delete('storage/videos/'.$aboutUs->video);
             }
-
             $video = $request->file('video')->store('public/videos');
             $arr_filename = explode("/",$video);
             $filename = end($arr_filename);

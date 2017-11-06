@@ -34,6 +34,7 @@ class HomeImageController extends Controller
     {
         $homeImage = new HomeImage();
         $homeImage->title = $request->title;
+        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/home-image');
             $arr_filename = explode("/",$image);

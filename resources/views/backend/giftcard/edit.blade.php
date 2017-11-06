@@ -41,7 +41,13 @@
                             <div class="col-sm-10 col-lg-offset-1">
                                 <label for="image"><h3>CARD</h3></label>
                                 <input class="form-control" name="image" type="file" id="image" onchange="viewImage(this)">
-                                <p><img id="image-show" src="{{ asset('/storage/gift-card/'.$giftCard->image) }}" alt="image" class="img-responsive" width="100%"></p>
+                                <p>
+                                    @if(empty($giftCard->image))
+                                        <img id="image-show" src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="100%">
+                                    @else
+                                        <img id="image-show" src="{{ asset('/storage/gift-card/'.$giftCard->image) }}" alt="image" class="img-responsive" width="100%">
+                                    @endif
+                                </p>
                                 <br>
                             </div>
 
@@ -59,40 +65,5 @@
             </div>
         </div>
     </section>
-    <script>
-        CKEDITOR.replace('intro', {
-            filebrowserBrowseUrl: "{{ asset('admin/js/ckfinder/ckfinder.html') }}",
-            filebrowserImageBrowseUrl: "{{ asset('admin/js/ckfinder/ckfinder.html?type=Images') }}",
-            filebrowserFlashBrowseUrl: "{{ asset('admin/js/ckfinder/ckfinder.html?type=Flash') }}",
-            filebrowserUploadUrl: "{{ asset('admin/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}",
-            filebrowserImageUploadUrl: "{{ asset('admin/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}",
-            filebrowserFlashUploadUrl: "{{ asset('admin/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}"
-        });
-    </script>
-    <!-- Modal Upload File -->
-    <div class="modal fade" id="myModalUpload" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Upload Media...</h4>
-                </div>
-                <form method="post" action="{{ route('aboutUsSaveVideo') }}" enctype="multipart/form-data" id="upload-file">
-                    {{ csrf_field() }}
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="upload">Choose File:</label>
-                            <input type="file" class="form-control" id="video" name="video" required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-info">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 </div>
 @stop

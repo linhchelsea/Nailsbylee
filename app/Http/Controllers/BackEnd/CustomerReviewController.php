@@ -45,12 +45,11 @@ class CustomerReviewController extends Controller
         $review = new CustomerReview();
         $review->name = $request->fullname;
         $review->content = $request->reviewContent;
+        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/reviews');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
-        }else{
-            $filename = 'avatar.png';
         }
         $review->image = $filename;
         $review->save();
