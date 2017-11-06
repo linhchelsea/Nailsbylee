@@ -62,15 +62,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="footer">
     <div class="container">
         <ul class="footer-list">
-            <li><i class="fa fa-map-marker fa-lg" aria-hidden="true" style="padding-right: 10px"></i>535 W SW Loop 323 #203 Tyler, TX 75701</li>
-            <li><i class="fa fa-phone-square fa-lg" aria-hidden="true" style="padding-right: 10px"></i>+(903) 939-0572</li>
-            <li><i class="fa fa-envelope fa-lg" aria-hidden="true" style="padding-right: 10px"></i>nailsbylee@gmail.com</li>
+            <li><i class="fa fa-map-marker fa-lg" aria-hidden="true" style="padding-right: 10px"></i>{{$information->address}}</li>
+            <li><i class="fa fa-phone-square fa-lg" aria-hidden="true" style="padding-right: 10px"></i>{{$information->phone}}</li>
+            <li><i class="fa fa-envelope fa-lg" aria-hidden="true" style="padding-right: 10px"></i>{{$information->email}}</li>
             <li style="border-right: none;">
                 <div class="footer-bottom">
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true" ></i><span>Facebook</span></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram </span></a>
-                    <a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span>Pinterest </span></a>
+                    <a href="{{$information->facebook}}"><i class="fa fa-facebook" aria-hidden="true" ></i><span>Facebook</span></a>
+                    <a href="{{$information->twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+                    <a href="{{$information->instagram}}"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram </span></a>
+                    {{--<a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span>Pinterest </span></a>--}}
                 </div>
             </li>
         </ul>

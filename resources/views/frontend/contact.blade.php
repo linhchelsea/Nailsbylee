@@ -17,12 +17,11 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-3 contact_address">
-                <p>535 W SW Loop 323 #203 Tyler, TX 75701</p>
+                <p>{{$information->address}}</p>
                 <dl>
                     <dt></dt>
-                    <dd>Freephone : <span> (903) 939-0572</span></dd>
-                    <dd>Telephone : <span> (903) 939-0572</span></dd>
-                    <dd>E-mail :&nbsp; <a href="">nailsbylee@gmail.com</a></dd>
+                    <dd>Telephone : <span>{{$information->phone}}</span></dd>
+                    <dd>E-mail :&nbsp; <a href="javascript:void(0)" style="cursor: text;">{{$information->email}}</a></dd>
                 </dl>
             </div>
         </div>
