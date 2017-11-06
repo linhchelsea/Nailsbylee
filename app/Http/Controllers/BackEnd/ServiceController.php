@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\Service;
+use App\ServiceDetail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -43,15 +44,19 @@ class ServiceController extends Controller
         $service->description = $request->description;
         $service->preview = $request->preview;
         $service->atHome = 0;
-        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/service');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
+        }else{
+            $filename = 'default.png';
         }
         $service->image = $filename;
-        $service->save();
-        $request->session()->flash('success','Success!');
+        if($service->save()){
+            $request->session()->flash('success','Create successfully!');
+        }else{
+            $request->session()->flash('fail','Create unsuccessfully!');
+        }
         return redirect()->route('service.index');
     }
 
@@ -88,8 +93,10 @@ class ServiceController extends Controller
         $service->description = $request->description;
         $service->preview = $request->preview;
         if($request->file('image') != null){
-            //Xoa anh cu~
-            File::delete('storage/service/'.$service->image);
+            //xoa anh cu~
+            if($service->image != 'default.png') {
+                File::delete('storage/service/' . $service->image);
+            }
             $image = $request->file('image')->store('public/service');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -97,8 +104,11 @@ class ServiceController extends Controller
             $filename = $service->image;
         }
         $service->image = $filename;
-        $service->save();
-        $request->session()->flash('success','Success!');
+        if($service->save()){
+            $request->session()->flash('success','Update successfully!');
+        }else{
+            $request->session()->flash('fail','Update unsuccessfully!');
+        }
         return redirect()->route('service.index');
     }
 
@@ -111,9 +121,27 @@ class ServiceController extends Controller
     public function destroy(Request $request, $id)
     {
         $service = Service::findOrFail($id);
-        File::delete('storage/service/'.$service->image);
-        $service->delete();
-        $request->session()->flash('success','Delete successfully');
+        //xoa danh sach service detail
+        $serviceDetails = ServiceDetail::where('idService','=',$service->id)
+                                        ->get();
+        if(count($serviceDetails) > 0){
+            foreach ($serviceDetails as $detail){
+                //xoa anh cu~
+                if($detail->image != 'default.png') {
+                    File::delete('storage/service-detail/' . $detail->image);
+                }
+                $detail->delete();
+            }
+        }
+        //xoa anh cua service
+        if($service->image != 'default.png') {
+            File::delete('storage/service/' . $service->image);
+        }
+        if($service->delete()){
+            $request->session()->flash('success','Delete successfully!');
+        }else{
+            $request->session()->flash('fail','Delete unsuccessfully!');
+        }
         return redirect()->back();
     }
 

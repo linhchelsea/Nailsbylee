@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <!-- Preview Field -->
                                 <div class="col-sm-10">
-                                    <label for="preview">Name</label>
+                                    <label for="preview">Preview</label>
                                     <input class="form-control" name="preview" type="text" id="preview" value="">
                                 </div>
                                 <div class="clearfix"></div>
@@ -51,7 +51,7 @@
                                     <label for="image">Choose one photo of Service <span style="color: red;">(Ratio - width x height - 1:1)</span> </label>
                                     <input class="form-control" name="image" type="file" id="image" onchange="viewImage(this)">
                                     <br>
-                                    <p><img id="image-show" src="{{ asset('/storage/service/noimage.png') }}" alt="no-image" class="img-responsive" width="200px" height="200px"></p>
+                                    <p><img id="image-show" src="{{ asset('/storage/default.png') }}" alt="no-image" class="img-responsive" width="200px" height="200px"></p>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

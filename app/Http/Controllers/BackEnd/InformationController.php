@@ -28,8 +28,11 @@ class InformationController extends Controller
         $information->instagram = $request->instagram;
         $information->twitter = $request->twitter;
         $information->address = $request->address;
-        $information->save();
-        $request->session()->flash('success','Your information was updated successfully !');
+        if($information->save()){
+            $request->session()->flash('success','Your information was updated successfully!');
+        }else{
+            $request->session()->flash('fail','Your information was updated unsuccessfully !!');
+        }
         return redirect()->route('information');
     }
 }

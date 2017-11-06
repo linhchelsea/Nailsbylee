@@ -60,8 +60,11 @@ class AboutUsController extends Controller
             $filename = $aboutUs->image;
         }
         $aboutUs->image = $filename;
-        $aboutUs->save();
-        $request->session()->flash('success','Success !');
+        if($aboutUs->save()){
+            $request->session()->flash('success','Update successfully!');
+        }else{
+            $request->session()->flash('fail','Update unsuccessfully!');
+        }
         return redirect()->route('about-us');
     }
 
