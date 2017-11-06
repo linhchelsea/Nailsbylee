@@ -15,7 +15,7 @@ class HomeImageController extends Controller
     }
     public function index()
     {
-        $homeImages = HomeImage::paginate(5);
+        $homeImages = HomeImage::orderBy('id','DESC')->paginate(5);
         return view('backend.homeimage.index',compact('homeImages'));
     }
 
@@ -41,8 +41,11 @@ class HomeImageController extends Controller
             $filename = end($arr_filename);
         }
         $homeImage->name = $filename;
-        $homeImage->save();
-        $request->session()->flash('success','Success!');
+        if($homeImage->save()){
+            $request->session()->flash('success','Create successfully!');
+        }else{
+            $request->session()->flash('fail','Create unsuccessfully!');
+        }
         return redirect()->route('home-image.index');
     }
 
@@ -67,8 +70,11 @@ class HomeImageController extends Controller
             $filename = $homeImage->name;
         }
         $homeImage->name = $filename;
-        $homeImage->save();
-        $request->session()->flash('success','Update successfully');
+        if($homeImage->save()){
+            $request->session()->flash('success','Update successfully!');
+        }else{
+            $request->session()->flash('fail','Update unsuccessfully!');
+        }
         return redirect()->back();
     }
 
@@ -76,8 +82,11 @@ class HomeImageController extends Controller
     {
         $homeImage = HomeImage::findOrFail($id);
         File::delete('storage/home-image/'.$homeImage->name);
-        $homeImage->delete();
-        $request->session()->flash('success','Delete successfully');
+        if($homeImage->delete()){
+            $request->session()->flash('success','Delete successfully!');
+        }else{
+            $request->session()->flash('fail','Delete unsuccessfully!');
+        }
         return redirect()->back();
     }
 }

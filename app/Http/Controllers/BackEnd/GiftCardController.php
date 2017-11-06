@@ -15,7 +15,7 @@ class GiftCardController extends Controller
     }
     public function index()
     {
-        $giftCards = GiftCard::paginate(8);
+        $giftCards = GiftCard::orderBy('id','DESC')->paginate(8);
         return view('backend.giftcard.index',compact('giftCards'));
     }
 
@@ -35,8 +35,11 @@ class GiftCardController extends Controller
             $filename = end($arr_filename);
         }
         $giftCard->image = $filename;
-        $giftCard->save();
-        $request->session()->flash('success','Success!');
+        if($giftCard->save()){
+            $request->session()->flash('success','Create successfully!');
+        }else{
+            $request->session()->flash('fail','Create unsuccessfully!');
+        }
         return redirect()->route('gift-card.index');
     }
 
@@ -60,8 +63,11 @@ class GiftCardController extends Controller
             $filename = $giftCard->image;
         }
         $giftCard->image = $filename;
-        $giftCard->save();
-        $request->session()->flash('success','Update successfully');
+        if($giftCard->save()){
+            $request->session()->flash('success','Update successfully!');
+        }else{
+            $request->session()->flash('fail','Update unsuccessfully!');
+        }
         return redirect()->back();
     }
 
@@ -69,8 +75,11 @@ class GiftCardController extends Controller
     {
         $giftCard = GiftCard::findOrFail($id);
         File::delete('storage/gift-card/'.$giftCard->image);
-        $giftCard->delete();
-        $request->session()->flash('success','Delete successfully');
+        if($giftCard->delete()){
+            $request->session()->flash('success','Delete successfully!');
+        }else{
+            $request->session()->flash('fail','Delete unsuccessfully!');
+        }
         return redirect()->back();
     }
 }

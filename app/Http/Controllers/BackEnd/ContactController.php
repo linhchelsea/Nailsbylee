@@ -21,7 +21,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::paginate(10);
+        $contacts = Contact::orderBy('id','DESC')->paginate(10);
         return view('backend.contact.index',compact('contacts'));
     }
 
@@ -50,8 +50,11 @@ class ContactController extends Controller
     public function destroy(Request $request, $id)
     {
         $contact = Contact::findOrFail($id);
-        $contact->delete();
-        $request->session()->flash('success','Success!');
+        if($contact->delete()){
+            $request->session()->flash('success','Delete successfully!');
+        }else{
+            $request->session()->flash('fail','Delete unsuccessfully!');
+        }
         return redirect()->back();
     }
     public function replyContact(Request $request){
