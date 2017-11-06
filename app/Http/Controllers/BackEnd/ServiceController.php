@@ -61,6 +61,13 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function show($id)
+    {
+        $service = Service::findOrFail($id);
+        return view('backend.service.show',compact('service'));
+    }
+
     public function edit($id)
     {
         $service = Service::findOrFail($id);

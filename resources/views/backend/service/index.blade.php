@@ -31,7 +31,6 @@
                                     <th class="text-center">Id</th>
                                     <th class="text-center">Name of service</th>
                                     <th class="text-center">Preview text</th>
-                                    <th class="text-center">Description</th>
                                     <th class="text-center">Image</th>
                                     <th class="text-center">Feature service</th>
                                     <th class="text-center">Actions</th>
@@ -44,22 +43,22 @@
                                         <td class="text-center" >{{ $service->id }}</td>
                                         <td class="text-center" style="width: 20%">{{ $service->name }}</td>
                                         <td style="width: 40%">{{ $service->preview }}</td>
-                                        <td style="width: 40%">{{ $service->description }}</td>
                                         <td class="text-center">
                                             @if(empty($service->image))
-                                                <img src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="150px" height="150px">
+                                                <img src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="200px" height="200px">
                                             @else
-                                                <img src="{{ asset('/storage/service/'.$service->image) }}" alt="image" id="service" width="150px" height="150px">
+                                                <img src="{{ asset('/storage/service/'.$service->image) }}" alt="image" id="service" width="200px" height="200px">
                                             @endif
                                         </td>
                                         <td class="text-center" style="width: 20%">
                                             <input style="height: 20px; width: 20px;" type="checkbox" name="feature" {{ ($service->atHome == 1)? "checked=\"true\"" : '' }} onclick="feature({{$service->id}}, '{{ route('updateFeatureService') }}');" class="feature" id="feature_{{$service->id}}" />
                                         </td>
                                         <td class="text-center">
-                                            <form style="width: 130px;" method="POST" action="{{ route('service.destroy', $service->id) }}" accept-charset="UTF-8">
+                                            <form style="width: 190px;" method="POST" action="{{ route('service.destroy', $service->id) }}" accept-charset="UTF-8">
                                                 <input name="_method" type="hidden" value="DELETE">
                                                 {{ csrf_field() }}
                                                 <div class='btn-group'>
+                                                    <a href="{{ route('service.show', $service->id) }}" class='btn btn-info'>Detail</a>
                                                     <a href="{{ route('service.edit', $service->id) }}" class='btn btn-warning'>Edit</a>
                                                     <button type="submit" class="btn btn-danger" onclick="return confirm(&#039;You want to remove this service?&#039;)">
                                                         Delete

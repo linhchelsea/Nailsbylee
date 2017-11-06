@@ -22,7 +22,7 @@
                     <dt></dt>
                     <dd>Freephone : <span> (903) 939-0572</span></dd>
                     <dd>Telephone : <span> (903) 939-0572</span></dd>
-                    <dd>E-mail :&nbsp; <a href="mailto@example.com">nailsbylee@gmail.com</a></dd>
+                    <dd>E-mail :&nbsp; <a href="">nailsbylee@gmail.com</a></dd>
                 </dl>
             </div>
         </div>
