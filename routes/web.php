@@ -8,6 +8,7 @@ Route::group(['prefix'=> 'admin','namespace'=>'BackEnd'],function (){
     Route::resource('review', 'CustomerReviewController');
     Route::resource('adcontact', 'ContactController');
     Route::resource('polishbrand', 'PolishBrandController');
+    Route::resource('service', 'ServiceController');
 
     Route::get('about-us', 'AboutUsController@index')->name('about-us');
     Route::put('about-us', 'AboutUsController@update')->name('aboutus-update');
