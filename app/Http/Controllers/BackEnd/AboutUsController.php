@@ -26,10 +26,10 @@ class AboutUsController extends Controller
     public function aboutUsSaveVideo(Request $request){
         $aboutUs = AboutUs::findOrFail(1);
         if($request->file('video') != null){
-
             if($aboutUs->video != 'about_us.mp4'){
                 //Xoa video cu~
                 File::delete('storage/videos/'.$aboutUs->video);
+
             }
             $video = $request->file('video')->store('public/videos');
             $arr_filename = explode("/",$video);

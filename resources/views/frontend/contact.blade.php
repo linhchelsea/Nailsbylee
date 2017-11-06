@@ -29,7 +29,9 @@
     <div class="contact_grid">
         <div class="container">
             @if(Session::has('success'))
-                <div class="alert alert-success"><p><strong>{{ Session::get('success') }}</strong></p></div>
+                <div class="alert" >
+                    <p style="font-family: 'Tangerine', cursive; font-size: 2.8em;text-align: center;">{{ Session::get('success') }}</p>
+                </div>
             @endif
             <form method="post" action="{{ route('contactStore') }}" accept-charset="UTF-8">
                 {{ csrf_field() }}

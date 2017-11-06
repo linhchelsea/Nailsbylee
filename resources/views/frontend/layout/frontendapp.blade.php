@@ -67,10 +67,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <li><i class="fa fa-envelope fa-lg" aria-hidden="true" style="padding-right: 10px"></i>{{$information->email}}</li>
             <li style="border-right: none;">
                 <div class="footer-bottom">
-                    <a href="{{$information->facebook}}"><i class="fa fa-facebook" aria-hidden="true" ></i><span>Facebook</span></a>
-                    <a href="{{$information->twitter}}"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
-                    <a href="{{$information->instagram}}"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram </span></a>
-                    {{--<a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span>Pinterest </span></a>--}}
+                    <a href="{{$information->facebook}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true" ></i><span>Facebook</span></a>
+                    <a href="{{$information->twitter}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+                    <a href="{{$information->instagram}}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram </span></a>
+                    {{--<a href="#" target="_blank"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span>Pinterest </span></a>--}}
                 </div>
             </li>
         </ul>
