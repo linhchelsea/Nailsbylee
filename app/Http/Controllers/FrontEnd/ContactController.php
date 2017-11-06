@@ -27,7 +27,7 @@ class ContactController extends Controller
         $contact->phone = $phone;
         $contact->message = $message;
         $contact->reply = 0;
-        $contact->idUser = null;
+        $contact->idUser = 0;
         $contact->save();
         $request->session()->flash('success','Thank you for your contact!');
         return redirect()->back();
