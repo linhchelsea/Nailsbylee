@@ -37,3 +37,27 @@ function uploadPhoto() {
         alert('Tập tin không đúng định dạng ảnh!');
     }
 }
+function replyContact(id, type){
+    if(confirm("You replied this contact?")){
+        $.ajax({
+            url: "/admin/replyContact",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: 'post',
+            cache: false,
+            data: {
+                'id': id,
+                'type' : type
+            },
+            success: function (data) {
+                if(data === 'index'){
+                    $('.reply_'+id).html('<span class="btn btn-success reply">REPLIED</span>');
+                }else{
+                    location.reload();
+                }
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    }
+}

@@ -49,7 +49,7 @@
                                         <meta name="csrf-token" content="{{ csrf_token() }}">
                                         <div class="reply_{{ $item->id }}">
                                         @if($item->reply == 0)
-                                            <a href="javascript:void(0)" class="btn btn-danger reply"onclick="replyContact({{$item->id}});">WAITING...</a>
+                                            <a href="javascript:void(0)" class="btn btn-danger reply" onclick="replyContact({{$item->id}},'index');">WAITING...</a>
                                         @else
                                             <span class="btn btn-success reply">REPLIED</span>
                                         @endif
