@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers\BackEnd;
 
-use App\Gallery;
+use App\PolishBrand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 
-class GalleryController extends Controller
+class PolishBrandController extends Controller
 {
-    function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +16,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $gallery = Gallery::paginate(5);
-        return view('backend.gallery.index',compact('gallery'));
+        $polishBrand = PolishBrand::orderBy('id','DESC')->paginate(8);
+        return view('backend.polish-brand.index',compact('polishBrand'));
     }
 
     /**
@@ -31,7 +27,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('backend.gallery.create');
+        return view('backend.polish-brand.create');
     }
 
     /**
@@ -42,19 +38,21 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        $gallery = new Gallery();
-        $gallery->title = $request->title;
+        $polishBrand = new PolishBrand();
+        $polishBrand->name = $request->name;
+        $polishBrand->description = $request->description;
+        $polishBrand->price = $request->price;
+        $filename = "";
         if($request->file('image') != null){
-            $image = $request->file('image')->store('public/gallery');
+            $image = $request->file('image')->store('public/polishbrand');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
         }
-        $gallery->image = $filename;
-        $gallery->save();
+        $polishBrand->image = $filename;
+        $polishBrand->save();
         $request->session()->flash('success','Success!');
-        return redirect()->route('gallery.index');
+        return redirect()->route('polishbrand.index');
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -64,8 +62,8 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        $gallery = Gallery::findOrFail($id);
-        return view('backend.gallery.edit',compact('gallery'));
+        $polishbrand = PolishBrand::findOrFail($id);
+        return view('backend.polish-brand.edit', compact('polishbrand'));
     }
 
     /**
@@ -77,21 +75,23 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $gallery = Gallery::findOrFail($id);
-        $gallery->title = $request->title;
+        $polishbrand = PolishBrand::findOrFail($id);
+        $polishbrand->name = $request->name;
+        $polishbrand->description = $request->description;
+        $polishbrand->price = $request->price;
         if($request->file('image') != null){
             //Xoa anh cu~
-            File::delete('storage/gallery/'.$gallery->image);
-            $image = $request->file('image')->store('public/gallery');
+            File::delete('storage/polishbrand/'.$polishbrand->image);
+            $image = $request->file('image')->store('public/polishbrand');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
         }else{
-            $filename = $gallery->image;
+            $filename = $polishbrand->image;
         }
-        $gallery->image = $filename;
-        $gallery->save();
-        $request->session()->flash('success','Update successfully');
-        return redirect()->back();
+        $polishbrand->image = $filename;
+        $polishbrand->save();
+        $request->session()->flash('success','Success!');
+        return redirect()->route('polishbrand.index');
     }
 
     /**
@@ -100,11 +100,11 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
-        $gallery = Gallery::findOrFail($id);
-        File::delete('storage/gallery/'.$gallery->image);
-        $gallery->delete();
+        $polishbrand = PolishBrand::findOrFail($id);
+        File::delete('storage/polishbrand/'.$polishbrand->image);
+        $polishbrand->delete();
         $request->session()->flash('success','Delete successfully');
         return redirect()->back();
     }

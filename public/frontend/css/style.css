@@ -265,7 +265,7 @@ img.arrow-img {
 h3.motiveColor{
   position: relative;
   text-align: center;
-  width:40%;
+  width:100%;
   margin: 0 auto;
   font-size: 6em;
     letter-spacing: 2px;
@@ -276,18 +276,20 @@ h3.motiveColor{
 h3.motiveColor:before {
   content: "";
   position: absolute;
+    margin: 0 auto;
   top: -19px;
   left: 0;
-  width: 100%;
+  width: 40%;
   right: 0;
   border-bottom: 2px solid #f3f3f3;
 }
 h3.motiveColor:after {
   content: "";
   position: absolute;
+    margin: 0 auto;
   top: -15px;
   left: 0;
-  width: 100%;
+  width: 40%;
   right: 0;
   border-bottom: 1px solid #f3f3f3;
 }
@@ -1007,6 +1009,7 @@ ul.text-list{
     background-color: #7B0E0B;
     color: #FFD15E;
     padding: 15px 0;
+    margin-top: 20px;
 }
 .footer-list{
     text-align: center;
@@ -1220,6 +1223,9 @@ h4.motiveColor1 {
   font-size: 2em;
   margin-bottom:0.5em;
 }
+    .grid_5 h2 {
+        font-size: 3em;
+    }
 .col-md-6.grid_3 {
   margin-bottom: 2em;
 }
@@ -1351,7 +1357,7 @@ h4.motiveColor1 {
   font-size: 2.5em;
 }
 .grid_5 h2 {
-  font-size: 3.5em;
+  font-size: 2.5em;
 }
 .typography h2 {
   font-size: 3em;
@@ -1368,7 +1374,7 @@ h4.motiveColor1 {
         margin-top: 0.3em;
     }
     .footer-list li{
-        margin: 5px 0;
+        margin: 10px 0;
         border-right: none;
         display: block;
         vertical-align: middle;
@@ -1388,7 +1394,6 @@ h4.motiveColor1 {
 }
 h3.motiveColor {
   font-size: 4em;
-  width:40%;
 }
 h4.motiveColor1 {
   font-size: 2em;
@@ -1521,7 +1526,6 @@ p.service_desc {
 }
 h3.motiveColor {
   font-size: 1.4em;
-  width: 40%;
 }
 .grid_1 p {
   font-size: 0.8125em;
@@ -1595,7 +1599,7 @@ p.service_desc {
   font-size:12px;
 }
 .grid_5 h2 {
-  font-size: 3em;
+  font-size: 2em;
 }
 .grid_5 h3 {
   font-size: 1.5em;
@@ -1872,7 +1876,21 @@ nav.navScroll a.buy{
     }
 }
 
-
-
-
-
+/*Pagination*/
+.pagination li span{
+    background: none !important;
+    border: none;
+}
+.pagination li a{
+    background: none !important;
+    color: #7C0F08;
+    border: none;
+}
+.pagination .disabled span{
+    color: #7C0F08 !important;
+}
+.pagination .active span{
+    background: #7C0F08 !important;
+    color: #FFD15E !important;
+    border-radius: 5px;
+}

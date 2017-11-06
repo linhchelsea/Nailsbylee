@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers\BackEnd;
 
-use App\Gallery;
+use App\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 
-class GalleryController extends Controller
+class ServiceController extends Controller
 {
-    function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +16,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $gallery = Gallery::paginate(5);
-        return view('backend.gallery.index',compact('gallery'));
+        $services = Service::orderBy('id','DESC')->get();
+        return view('backend.service.index',compact('services'));
     }
 
     /**
@@ -31,7 +27,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('backend.gallery.create');
+        return view('backend.service.create');
     }
 
     /**
@@ -42,19 +38,22 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        $gallery = new Gallery();
-        $gallery->title = $request->title;
+        $service = new Service();
+        $service->name = $request->name;
+        $service->description = $request->description;
+        $service->preview = $request->preview;
+        $service->atHome = 0;
+        $filename = "";
         if($request->file('image') != null){
-            $image = $request->file('image')->store('public/gallery');
+            $image = $request->file('image')->store('public/service');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
         }
-        $gallery->image = $filename;
-        $gallery->save();
+        $service->image = $filename;
+        $service->save();
         $request->session()->flash('success','Success!');
-        return redirect()->route('gallery.index');
+        return redirect()->route('service.index');
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -64,8 +63,8 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        $gallery = Gallery::findOrFail($id);
-        return view('backend.gallery.edit',compact('gallery'));
+        $service = Service::findOrFail($id);
+        return view('backend.service.edit', compact('service'));
     }
 
     /**
@@ -77,21 +76,23 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $gallery = Gallery::findOrFail($id);
-        $gallery->title = $request->title;
+        $service = Service::findOrFail($id);
+        $service->name = $request->name;
+        $service->description = $request->description;
+        $service->preview = $request->preview;
         if($request->file('image') != null){
             //Xoa anh cu~
-            File::delete('storage/gallery/'.$gallery->image);
-            $image = $request->file('image')->store('public/gallery');
+            File::delete('storage/service/'.$service->image);
+            $image = $request->file('image')->store('public/service');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
         }else{
-            $filename = $gallery->image;
+            $filename = $service->image;
         }
-        $gallery->image = $filename;
-        $gallery->save();
-        $request->session()->flash('success','Update successfully');
-        return redirect()->back();
+        $service->image = $filename;
+        $service->save();
+        $request->session()->flash('success','Success!');
+        return redirect()->route('service.index');
     }
 
     /**
@@ -100,12 +101,20 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
-        $gallery = Gallery::findOrFail($id);
-        File::delete('storage/gallery/'.$gallery->image);
-        $gallery->delete();
+        $service = Service::findOrFail($id);
+        File::delete('storage/service/'.$service->image);
+        $service->delete();
         $request->session()->flash('success','Delete successfully');
         return redirect()->back();
+    }
+
+    public function UpdateFeatureService(Request $request)
+    {
+        $id = $request->id;
+        $service = Service::findOrFail($id);
+        $service->atHome = !($service->atHome);
+        $service->save();
     }
 }

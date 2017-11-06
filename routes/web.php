@@ -7,6 +7,8 @@ Route::group(['prefix'=> 'admin','namespace'=>'BackEnd'],function (){
     Route::resource('home-image', 'HomeImageController');
     Route::resource('review', 'CustomerReviewController');
     Route::resource('adcontact', 'ContactController');
+    Route::resource('polishbrand', 'PolishBrandController');
+    Route::resource('service', 'ServiceController');
 
     Route::get('about-us', 'AboutUsController@index')->name('about-us');
     Route::put('about-us', 'AboutUsController@update')->name('aboutus-update');
@@ -15,6 +17,7 @@ Route::group(['prefix'=> 'admin','namespace'=>'BackEnd'],function (){
     Route::put('information', 'InformationController@update')->name('inforUpdate');
     Route::get('profile', 'UserController@profile')->name('profile');
     Route::post('/replyContact','ContactController@replyContact')->name('replyContact');
+    Route::post('/updateFeatureService','ServiceController@UpdateFeatureService')->name('updateFeatureService');
 });
 Route::group(['namespace'=>'FrontEnd'], function (){
     Route::get('/','HomeController@index')->name('homepage');
