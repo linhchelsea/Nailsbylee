@@ -16,7 +16,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::orderBy('id','DESC')->get();
+        $services = Service::orderBy('id','DESC')->paginate(5);
         return view('backend.service.index',compact('services'));
     }
 

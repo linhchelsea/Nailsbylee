@@ -79,6 +79,11 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="box-footer clearfix">
+                        <div class="pagination-sm no-margin pull-right">
+                            {{ $services->links() }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
