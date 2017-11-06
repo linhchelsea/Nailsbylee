@@ -47,7 +47,7 @@
                                         <td style="width: 40%">{{ $service->description }}</td>
                                         <td class="text-center">
                                             @if(empty($service->image))
-                                                <img src="{{ asset('/storage/service/noimage.png') }}" alt="noimage" id="noimage" width="150px" height="150px">
+                                                <img src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="150px" height="150px">
                                             @else
                                                 <img src="{{ asset('/storage/service/'.$service->image) }}" alt="image" id="service" width="150px" height="150px">
                                             @endif

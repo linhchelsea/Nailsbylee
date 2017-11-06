@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-md-6 grid_5 service">
                                 @if(empty($brand->image))
-                                    <img src="{{ asset('/frontend/images/noimage-pb.png') }}" alt="noimage" class="img-responsive">
+                                    <img src="{{ asset('images/noimage-public.png') }}" alt="noimage" class="img-responsive">
                                 @else
                                     <img src="{{ asset('/storage/polishbrand/'.$brand->image) }}" alt="{{$brand->name}}" class="img-responsive">
                                 @endif

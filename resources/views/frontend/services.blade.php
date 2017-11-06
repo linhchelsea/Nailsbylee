@@ -6,114 +6,34 @@
         <h4 class="motiveColor1">You wanna get a new look from us</h4>
         <div class="container">
             <div class="row row-eq-height">
-                <div class="col-md-3  about-grid">
-                    <a href="{{ route('servicedetail') }}" title="pic3" rel="title234">
-                        <div class="view view-first">
-                            <img src="{{asset('frontend/images/pic3.jpg')}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
+                @if(count($services) > 0)
+                    <?php $i = 1; ?>
+                    @foreach($services as $service)
+                        <div class="col-md-3  about-grid">
+                            <a href="{{ route('servicedetail') }}" title="{{$service->name}}">
+                                <div class="view view-first">
+                                    @if(empty($service->image))
+                                        <img src="{{asset('images/noimage-public.png')}}" class="img-responsive" alt="noImage"/>
+                                    @else
+                                        <img src="{{asset('storage/service/'.$service->image)}}" class="img-responsive" alt="{{$service->name}}"/>
+                                    @endif
+                                    <div class="mask">
+                                        <div class="info"></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">{{$service->name}}</a></h3>
+                            <p style="text-align: center;" class="service_desc">{{$service->preview}}</p>
                         </div>
-                    </a>
-                    <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Manicure</a></h3>
-                    <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-                    
-                </div>
-                <div class="col-md-3  about-grid">
-                    <a class="chocolat-image" href="{{ route('servicedetail') }}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("/frontend/images/pic1.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Pedicure</a></h3>
-                    <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetue Lorem ipsum dolor sit amet, consectetueLorem ipsum dolor sit amet, consectetueLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-                    
-                </div>
-                <div class="col-md-3  about-grid">
-                    <a href="{{ route('servicedetail') }}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("frontend/images/pic4.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Design</a></h3>
-                    <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-                    
-                </div>
-                <div class="col-md-3  about-grid">
-                    <a href="{{ route('servicedetail') }}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("frontend/images/pic5.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Services for Children</a></h3>
-                    <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-                    
-                </div>
-                <div class="clearfix" style="margin-bottom: 20px;"> </div>
-                </div>
-                <div class="row row-eq-height">
-                <div class="col-md-3 about-grid">
-                    <a href="{{ route('servicedetail') }}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("frontend/images/pic2.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Waxing Services</a></h3>
-                    <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-                    
-                </div>
-                <div class="col-md-3 about-grid">
-                    <a href="{{ route('servicedetail') }}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("/frontend/images/pic6.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">À La Cart</a></h3>
-                    <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-                    
-                </div>
-                <div class="col-md-3 about-grid">
-                    <a href="{{ route('servicedetail') }}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("/frontend/images/pic5.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Eyelash Extensions</a></h3>
-                    <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-                    
-                </div>
-                <div class="col-md-3 about-grid">
-                    <a href="{{ route('servicedetail') }}" title="name" rel="title2">
-                        <div class="view view-first">
-                            <img src="{{asset("/frontend/images/pic3.jpg")}}" class="img-responsive" alt=""/>
-                            <div class="mask">
-                                <div class="info"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Eyebrow Tinting</a></h3>
-                    <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-                    
-                </div>
-                <div class="clearfix"></div>
+                            @if ($i%4 == 0)
+                                <div class="clearfix"> </div>
+                            @endif
+                    @endforeach
+                @else
+                    <div class="container">
+                        <h3 style="font-family: 'Tangerine', cursive; font-size: 3em;">No papers here!!</h3>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

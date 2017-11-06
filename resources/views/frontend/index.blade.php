@@ -2,18 +2,16 @@
 
 @section('content')
     <div class="air-slider">
-        <div class="slide">
-                <img src="{{asset('frontend/images/index1.jpg')}}" alt="slide1"/>
-                <p>Image's Title 1 Image's Title 1 Image's Title 1 Image's Title 1  Title 1 Image's Title 1 Image's </p>
-        </div>
-        <div class="slide">
-                <img src="{{asset('frontend/images/index2.jpg')}}" alt="slide2"/>
-                <p>Image's Title 2 Image's Title 2 Image's Title 2 Image's Title 2  Title 1 Image's Title 1 Image's Title 1 Image's Title 1  Title 1 Image's Title 1 Image's Title 1 Image's Title 1</p>
-        </div>
-        <div class="slide">
-                <img src="{{asset('frontend/images/index3.jpg')}}" alt="slide3"/>
-                <p>Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3 Image's Title 3</p>
-        </div>
+        @foreach($homeImages as $image)
+            <div class="slide">
+                @if(empty($image->name))
+                    <img src="{{asset('images/noimage-public.png')}}" alt="{{$image->title}}"/>
+                @else
+                    <img src="{{asset('storage/home-image/'.$image->name)}}" alt="{{$image->title}}">
+                @endif
+                    <p>{{$image->title}}</p>
+            </div>
+        @endforeach
     </div>
     <script>
         var slider = new airSlider({
@@ -29,60 +27,27 @@
     <h4 class="motiveColor1">You wanna get a new look from us</h4>
     <div class="container">
         <div class="row row-eq-height">
-            <div class="col-md-3 about-grid">
-                <a href="{{ route('servicedetail') }}" title="pic3" rel="title234">
-                    <div class="view view-first">
-                        <img src="{{asset('frontend/images/pic3.jpg')}}" class="img-responsive" alt=""/>
-                        <div class="mask">
-                            <div class="info"></div>
+            @foreach($services as $service)
+                <div class="col-md-3 about-grid">
+                    <a href="{{ route('servicedetail') }}" title="{{$service->name}}">
+                        <div class="view view-first">
+                            @if(empty($service->image))
+                                <img src="{{asset('images/noimage-public.png')}}" class="img-responsive" alt="noImage"/>
+                            @else
+                                <img src="{{asset('storage/service/'.$service->image)}}" class="img-responsive" alt=""/>
+                            @endif
+                            <div class="mask">
+                                <div class="info"></div>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Manicure</a></h3>
-                <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-
-            </div>
-            <div class="col-md-3 about-grid">
-                <a class="chocolat-image" href="{{ route('servicedetail') }}" title="name" rel="title2">
-                    <div class="view view-first">
-                        <img src="{{asset("/frontend/images/pic1.jpg")}}" class="img-responsive" alt=""/>
-                        <div class="mask">
-                            <div class="info"></div>
-                        </div>
-                    </div>
-                </a>
-                <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Pedicure</a></h3>
-                <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer a Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-
-            </div>
-            <div class="col-md-3 about-grid">
-                <a href="{{ route('servicedetail') }}" title="name" rel="title2">
-                    <div class="view view-first">
-                        <img src="{{asset("frontend/images/pic4.jpg")}}" class="img-responsive" alt=""/>
-                        <div class="mask">
-                            <div class="info"></div>
-                        </div>
-                    </div>
-                </a>
-                <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Design</a></h3>
-                <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-
-            </div>
-            <div class="col-md-3 about-grid">
-                <a href="{{ route('servicedetail') }}" title="name" rel="title2">
-                    <div class="view view-first">
-                        <img src="{{asset("frontend/images/pic5.jpg")}}" class="img-responsive" alt=""/>
-                        <div class="mask">
-                            <div class="info"></div>
-                        </div>
-                    </div>
-                </a>
-                <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">Services for Children</a></h3>
-                <p style="text-align: center;" class="service_desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
-            </div>
+                    </a>
+                    <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">{{$service->name}}</a></h3>
+                    <p style="text-align: center;" class="service_desc">{{$service->preview}}</p>
+                </div>
+            @endforeach
             <div class="clearfix" style="margin-bottom: 20px;"> </div>
         </div>
-        <div class="btn_3"><a href="#" class="btn btn-default"><span>Learn More</span></a></div>
+        <div class="btn_3"><a href="{{ route('services') }}" class="btn btn-default"><span>Learn More</span></a></div>
     </div>
 </div>
 <!--- Slider Starts Here --->
@@ -114,27 +79,19 @@
             <!-- Slideshow 4 -->
             <div  id="top" class="callbacks_container">
                 <ul class="rslides" id="slider4">
-                    <li>
-                        <div class="slider-top">
-                            <img src="{{asset('frontend/images/1.png')}}" class="img-responsive" alt=""/>
-                            <p>“Thanks for keeping this salon the cleanest one I’ve ever seen during my thirteen years as a Department Inspector.”</p>
-                            <p class="below">-A. L., Texas Department of Licensing and Regulation</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="slider-top">
-                            <img src="{{asset('frontend/images/pic2.jpg')}}" class="img-responsive" alt=""/>
-                            <p class="second-slide">"Nails By Lee has the best services, I love it"</p>
-                            <p class="below">-Salade de Banoui</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="slider-top">
-                            <img src="{{asset('frontend/images/pic3.jpg')}}" class="img-responsive" alt=""/>
-                            <p class="second-slide">"Absolutely love each set I get! She's amazing at what she does! It's definitely worth it!"</p>
-                            <p class="below">-Salade de Banoui</p>
-                        </div>
-                    </li>
+                    @foreach($customerReviews as $review)
+                        <li>
+                            <div class="slider-top">
+                                @if(empty($review->image))
+                                    <img src="{{asset('images/noimage-public.png')}}" alt="{{$review->name}}"/>
+                                @else
+                                    <img src="{{asset('storage/reviews/'.$review->image)}}" alt="{{$review->name}}">
+                                @endif
+                                <p>“{{$review->content}}”</p>
+                                <p class="below">-{{$review->name}}</p>
+                            </div>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
             <div class="clearfix"> </div>

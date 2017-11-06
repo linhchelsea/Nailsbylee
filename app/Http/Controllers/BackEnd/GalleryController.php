@@ -20,7 +20,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $gallery = Gallery::paginate(5);
+        $gallery = Gallery::paginate(8);
         return view('backend.gallery.index',compact('gallery'));
     }
 
@@ -44,6 +44,7 @@ class GalleryController extends Controller
     {
         $gallery = new Gallery();
         $gallery->title = $request->title;
+        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/gallery');
             $arr_filename = explode("/",$image);

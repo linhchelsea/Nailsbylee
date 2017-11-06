@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
-use App\IndexImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\ParentCat;
-use App\Information;
+use App\Gallery;
 class GalleryController extends Controller
 {
     public function index()
     {
-        return view('frontend.gallery');
+        $galleries = Gallery::paginate(8);
+        return view('frontend.gallery',compact('galleries'));
     }
 }

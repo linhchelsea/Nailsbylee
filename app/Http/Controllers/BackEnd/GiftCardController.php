@@ -15,7 +15,7 @@ class GiftCardController extends Controller
     }
     public function index()
     {
-        $giftCards = GiftCard::paginate(5);
+        $giftCards = GiftCard::paginate(8);
         return view('backend.giftcard.index',compact('giftCards'));
     }
 
@@ -28,6 +28,7 @@ class GiftCardController extends Controller
     {
         $giftCard = new GiftCard();
         $giftCard->title = $request->title;
+        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/gift-card');
             $arr_filename = explode("/",$image);
