@@ -20,7 +20,7 @@ class CustomerReviewController extends Controller
      */
     public function index()
     {
-        $customerReviews = CustomerReview::paginate(10);
+        $customerReviews = CustomerReview::orderBy('id','DESC')->paginate(10);
         return view('backend.customer-review.index',compact('customerReviews'));
     }
 
@@ -52,8 +52,11 @@ class CustomerReviewController extends Controller
             $filename = end($arr_filename);
         }
         $review->image = $filename;
-        $review->save();
-        $request->session()->flash('success','Success!');
+        if($review->save()){
+            $request->session()->flash('success','Create successfully!');
+        }else{
+            $request->session()->flash('fail','Create unsuccessfully!');
+        }
         return redirect()->route('review.index');
     }
 
@@ -91,8 +94,11 @@ class CustomerReviewController extends Controller
             $filename = $review->image;
         }
         $review->image = $filename;
-        $review->save();
-        $request->session()->flash('success','Success!');
+        if($review->save()){
+            $request->session()->flash('success','Update successfully!');
+        }else{
+            $request->session()->flash('fail','Update unsuccessfully!');
+        }
         return redirect()->route('review.index');
     }
 
@@ -106,8 +112,11 @@ class CustomerReviewController extends Controller
     {
         $review = CustomerReview::findOrFail($id);
         File::delete('storage/reviews/'.$review->image);
-        $review->delete();
-        $request->session()->flash('success','Delete successfully');
+        if($review->delete()){
+            $request->session()->flash('success','Delete successfully!');
+        }else{
+            $request->session()->flash('fail','Delete unsuccessfully!');
+        }
         return redirect()->back();
     }
 }

@@ -46,11 +46,7 @@
                                         <td style="width: 40%">{{ $service->preview }}</td>
                                         <td style="width: 40%">{{ $service->description }}</td>
                                         <td class="text-center">
-                                            @if(empty($service->image))
-                                                <img src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="150px" height="150px">
-                                            @else
-                                                <img src="{{ asset('/storage/service/'.$service->image) }}" alt="image" id="service" width="150px" height="150px">
-                                            @endif
+                                             <img src="{{ asset('/storage/service/'.$service->image) }}" alt="image" id="service" width="150px" height="150px">
                                         </td>
                                         <td class="text-center" style="width: 20%">
                                             <input style="height: 20px; width: 20px;" type="checkbox" name="feature" {{ ($service->atHome == 1)? "checked=\"true\"" : '' }} onclick="feature({{$service->id}}, '{{ route('updateFeatureService') }}');" class="feature" id="feature_{{$service->id}}" />

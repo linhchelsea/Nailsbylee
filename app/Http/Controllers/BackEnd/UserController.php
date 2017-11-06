@@ -6,6 +6,7 @@ use App\Contact;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
@@ -167,7 +168,7 @@ class UserController extends Controller
         $contacts = Contact::where('idUser','=',$id)->get();
         if (count($contacts) > 0){
             foreach ($contacts as $contact){
-                $contact->idUser = 1;
+                $contact->idUser = Auth::user()->id;
                 $contact->save();
             }
         }

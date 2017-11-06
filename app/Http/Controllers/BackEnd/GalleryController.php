@@ -20,7 +20,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $gallery = Gallery::paginate(8);
+        $gallery = Gallery::orderBy('id','DESC')->paginate(8);
         return view('backend.gallery.index',compact('gallery'));
     }
 
@@ -51,8 +51,11 @@ class GalleryController extends Controller
             $filename = end($arr_filename);
         }
         $gallery->image = $filename;
-        $gallery->save();
-        $request->session()->flash('success','Success!');
+        if($gallery->save()){
+            $request->session()->flash('success','Create successfully!');
+        }else{
+            $request->session()->flash('fail','Create unsuccessfully!');
+        }
         return redirect()->route('gallery.index');
     }
 
@@ -90,8 +93,11 @@ class GalleryController extends Controller
             $filename = $gallery->image;
         }
         $gallery->image = $filename;
-        $gallery->save();
-        $request->session()->flash('success','Update successfully');
+        if($gallery->save()){
+            $request->session()->flash('success','Update successfully!');
+        }else{
+            $request->session()->flash('fail','Update unsuccessfully!');
+        }
         return redirect()->back();
     }
 
@@ -105,8 +111,11 @@ class GalleryController extends Controller
     {
         $gallery = Gallery::findOrFail($id);
         File::delete('storage/gallery/'.$gallery->image);
-        $gallery->delete();
-        $request->session()->flash('success','Delete successfully');
+        if($gallery->delete()){
+            $request->session()->flash('success','Delete successfully!');
+        }else{
+            $request->session()->flash('fail','Delete unsuccessfully!');
+        }
         return redirect()->back();
     }
 }
