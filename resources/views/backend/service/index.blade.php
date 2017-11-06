@@ -3,6 +3,7 @@
 
 <div class="content-wrapper">
     <section class="content">
+        <script src="{{ asset('admin/js/function/featureservice.js') }}" type="text/javascript"></script>
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-12">
@@ -23,6 +24,7 @@
                         </div>
                     </div>
                     <div class="box-body table-responsive">
+                        <meta name="csrf-token" content="{{ csrf_token() }}">
                         <table class="table table-responsive table-bordered">
                             <thead>
                                 <tr>
@@ -50,7 +52,9 @@
                                                 <img src="{{ asset('/storage/service/'.$service->image) }}" alt="image" id="service" width="150px" height="150px">
                                             @endif
                                         </td>
-                                        <td class="text-center" style="width: 20%"><input type="checkbox" name="feature" value="{{$service->id}}" /></td>
+                                        <td class="text-center" style="width: 20%">
+                                            <input style="height: 20px; width: 20px;" type="checkbox" name="feature" {{ ($service->atHome == 1)? "checked=\"true\"" : '' }} onclick="feature({{$service->id}}, '{{ route('updateFeatureService') }}');" class="feature" id="feature_{{$service->id}}" />
+                                        </td>
                                         <td class="text-center">
                                             <form style="width: 130px;" method="POST" action="{{ route('service.destroy', $service->id) }}" accept-charset="UTF-8">
                                                 <input name="_method" type="hidden" value="DELETE">

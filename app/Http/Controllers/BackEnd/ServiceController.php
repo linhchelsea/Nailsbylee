@@ -109,4 +109,12 @@ class ServiceController extends Controller
         $request->session()->flash('success','Delete successfully');
         return redirect()->back();
     }
+
+    public function UpdateFeatureService(Request $request)
+    {
+        $id = $request->id;
+        $service = Service::findOrFail($id);
+        $service->atHome = !($service->atHome);
+        $service->save();
+    }
 }

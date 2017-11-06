@@ -17,6 +17,7 @@ Route::group(['prefix'=> 'admin','namespace'=>'BackEnd'],function (){
     Route::put('information', 'InformationController@update')->name('inforUpdate');
     Route::get('profile', 'UserController@profile')->name('profile');
     Route::post('/replyContact','ContactController@replyContact')->name('replyContact');
+    Route::post('/updateFeatureService','ServiceController@UpdateFeatureService')->name('updateFeatureService');
 });
 Route::group(['namespace'=>'FrontEnd'], function (){
     Route::get('/','HomeController@index')->name('homepage');
