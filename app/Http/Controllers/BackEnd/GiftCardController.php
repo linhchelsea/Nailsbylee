@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\File;
 
 class GiftCardController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $giftCards = GiftCard::paginate(5);
