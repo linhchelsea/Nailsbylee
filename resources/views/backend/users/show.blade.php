@@ -10,7 +10,7 @@
                 <div class="box box-primary">
                     <div class="box-header" style="background-color: #f4f4f4; ">
                         <h3 class="pull-left" style="margin: 4px 5px 0px 5px;">
-                            User's detail
+                            User detail
                         </h3>
                         <div class="pull-right" style="margin: 0px 10px;">
                             <a class="btn btn-success pull-right" href="{{ route('users.create') }}"><i class="glyphicon glyphicon-plus"></i> Create new user</a>
@@ -20,45 +20,37 @@
                         <table class="table table-responsive table-bordered" id="tours-table">
                             <thead>
                                 <tr class="info">
-                                    <th class="text-center" colspan="2"><h4>User's detail</h4></th>
+                                    <th class="text-center" colspan="2"><h4>User detail</h4></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>ID</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>Username</td>
-                                    <td>admin</td>
+                                    <td>Fullname</td>
+                                    <td>{{ $user->name }}</td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td>admin@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>Fullname</td>
-                                    <td>Eden Hazard</td>
+                                    <td>{{ $user->email }}</td>
                                 </tr>
                                 <tr>
                                     <td>Position</td>
-                                    <td>Admin</td>
+                                    <td>User</td>
                                 </tr>
                                 <tr>
                                     <td>Created At</td>
-                                    <td class="text-success">25/10/2017</td>
+                                    <td class="text-success">{{ $user->created_at }}</td>
                                 </tr>
                                 <tr>
                                     <td>Updated At</td>
-                                    <td class="text-danger">25/10/2017</td>
+                                    <td class="text-danger">{{ $user->updated_at }}</td>
                                 </tr>
                                 <tr>
                                     <td>Avatar</td>
-                                    <td><img src="{{ url("storage/avatars/avatar.png") }}" width="200px"></td>
+                                    <td><img src="{{ url('storage/avatars/'.$user->avatar) }}" width="200px"></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <button class="btn btn-warning" type="button" onclick="window.location='{{ url()->previous() }}';" style="margin-top: 15px;"><i class="fa fa-reply-all" aria-hidden="true"></i> Back</button>
+                        <button class="btn btn-warning" type="button" onclick="window.location='{{ url()->previous() }}';" style="margin-top: 15px;"><i class="fa fa-reply-all" aria-hidden="true"></i> BACK</button>
                     </div>
                 </div>
             </div>

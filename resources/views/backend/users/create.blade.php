@@ -21,13 +21,13 @@
                     <div class="alert alert-danger"><p><strong>{{ Session::get('fail') }}</strong></p></div>
                 @endif
                 <div class="row">
-                    <form method="POST" action="" accept-charset="UTF-8" id="user" class="userForm">
+                    <form method="POST" action="{{ route('users.store') }}" accept-charset="UTF-8" id="user" class="userForm">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <!-- Name Field -->
+                            <!-- Fullname Field -->
                             <div class="col-sm-6">
-                                <label for="name" style="color: #9c3328">Username (Unique)</label>
-                                <input class="form-control" name="name" type="text" id="name">
+                                <label for="fullname">Full name</label>
+                                <input class="form-control" name="fullname" type="text" id="fullname">
                             </div>
                             <!-- Email Field -->
                             <div class="col-sm-6">
@@ -52,15 +52,10 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group">
-                            <!-- Fullname Field -->
-                            <div class="col-sm-6">
-                                <label for="fullname">Full name</label>
-                                <input class="form-control" name="fullname" type="text" id="fullname">
-                            </div>
                             <!-- Level Field -->
                             <div class="col-sm-6">
                                 <label for="position">Position</label>
-                                <select name="position" id="level" class="form-control">
+                                <select name="isAdmin" id="level" class="form-control">
                                     <option value="1">Admin</option>
                                     <option value="0" selected>User</option>
                                 </select>

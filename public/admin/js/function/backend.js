@@ -1,43 +1,11 @@
-function delImage(id){
-    if(confirm("Bạn muốn xóa ảnh này?")){
-        $.ajax({
-            url: "/admin/delfurnitureimage",
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            type: 'post',
-            cache: false,
-            data: {
-                'id': id
-            },
-            success: function (data) {
-                $('.feature_image').html('<input type=\"file\" name=\"upload\" id=\"upload\" value=\"upload\">');
-            },
-            error: function () {
-                alert("error while delete image");
-            }
-        });
-    }
-}
+function viewAvatar(img) {
+    var fileReader = new FileReader;
+    fileReader.onload = function(img) {
+        var avartarShow = document.getElementById("avartar-img-show");
 
-function delPhongThuyImage(id){
-    if(confirm("Bạn muốn xóa ảnh này?")){
-        $.ajax({
-            url: "/admin/delphongthuyimage",
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            type: 'post',
-            cache: false,
-            data: {
-                'id': id
-            },
-            success: function (data) {
-                $('.feature_image').html('<input type=\"file\" name=\"upload\" id=\"upload\" value=\"upload\">');
-            },
-            error: function () {
-                alert("error while delete image");
-            }
-        });
-    }
+        avartarShow.src = img.target.result
+    }, fileReader.readAsDataURL(img.files[0])
 }
-
 function viewImg(img) {
     console.log(img);
     var fileReader = new FileReader;
@@ -56,26 +24,7 @@ function viewImage(img) {
         avartarShow.src = img.target.result
     }, fileReader.readAsDataURL(img.files[0])
 }
-function setCat() {
-    var value = $("#parentcat :selected").val();
-    if (value == 0) {
-        $('#categoryform').html("<div class=\"col-sm-12\"><label for=\"category\">Chọn tiểu mục:</label><label for=\"category\" class=\"form-control\"><span style=\"color: #9f191f\">BẠN CHƯA CHỌN DANH MỤC</span></label></div><div class=\"clearfix\"></div>");
-    } else {
-        $.ajax({
-            url: "/admin/setCategories",
-            type: 'POST',
-            cache: false,
-            data: {
-                'id_parent': value
-            },
-            success: function(data){
-                $('#categoryform').html(data);
-            },
-            error: function (){
-            }
-        });
-    }
-}
+
 function uploadPhoto() {
     var fakePath = $('#upload-file-selector').val();
     var arr_path = fakePath.split('/');
@@ -87,19 +36,4 @@ function uploadPhoto() {
     }else{
         alert('Tập tin không đúng định dạng ảnh!');
     }
-}
-function deleteImage(id){
-    $.ajax({
-        url: "/admin/deleteimage",
-        type: 'post',
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        data: {
-            'idimage': id
-        },
-        success: function (data) {
-            $('.picture-' + data).remove();
-        },
-        error: function () {
-        }
-    });
 }
