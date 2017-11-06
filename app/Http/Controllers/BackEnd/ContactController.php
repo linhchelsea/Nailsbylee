@@ -6,6 +6,7 @@ use App\Contact;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -77,6 +78,12 @@ class ContactController extends Controller
         return redirect()->back();
     }
     public function replyContact(Request $request){
-
+        $id = $request->id;
+        $type = $request->type;
+        $contact = Contact::findOrFail($id);
+        $contact->reply = 1;
+        $contact->idUser = Auth::user()->id;
+        $contact->save();
+        return $type;
     }
 }

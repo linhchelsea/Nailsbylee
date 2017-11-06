@@ -45,12 +45,12 @@
                                     <td class="text-bold">Status</td>
                                     <td>
                                         <meta name="csrf-token" content="{{ csrf_token() }}">
-                                        <div class="reply">
+                                        <div class="reply_field">
                                         @if($contact->reply == 0)
                                             <span style="font-weight: bold; color: red;">Waiting...</span>
-                                            <a href="javascript:void(0)" class="btn btn-warning" onclick="replyContact({{$contact->id}});" style="font-weight: bold; color: black; margin-left: 50px">REPLY</a>
+                                            <a href="javascript:void(0)" class="btn btn-warning" onclick="replyContact({{$contact->id}},'show');" style="font-weight: bold; color: black; margin-left: 50px">REPLY</a>
                                         @else
-                                        <span style="font-weight: bold; color: green;">Replied</span>
+                                        <span class="btn btn-success reply_show">REPLIED</span>
                                         @endif
                                         </div>
                                     </td>
