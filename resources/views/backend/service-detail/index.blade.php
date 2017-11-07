@@ -46,15 +46,11 @@
                                         <td class="text-center" style="width: 15%">{{ $service->serviceName }}</td>
                                         <td class="text-center">{{ $service->price }} $</td>
                                         <td class="text-center">{{ $service->time }}</td>
-                                        <td class="text-center" style="width: 20%">
-                                            @if(empty($service->image))
-                                                <img src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="300px" height="150px">
-                                            @else
-                                                <img src="{{ asset('/storage/service-detail/'.$service->image) }}" alt="image" id="service" width="300px" height="150px">
-                                            @endif
+                                        <td class="text-center">
+                                            <img src="{{ asset('/storage/service-detail/'.$service->image) }}" alt="image" id="service" width="200px" height="100px">
                                         </td>
                                         <td class="text-center">
-                                            <form style="width: 190px;" method="POST" action="{{ route('service-detail.destroy', $service->id) }}" accept-charset="UTF-8">
+                                            <form method="POST" action="{{ route('service-detail.destroy', $service->id) }}" accept-charset="UTF-8">
                                                 <input name="_method" type="hidden" value="DELETE">
                                                 {{ csrf_field() }}
                                                 <div class='btn-group'>

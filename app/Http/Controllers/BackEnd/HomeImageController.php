@@ -34,11 +34,12 @@ class HomeImageController extends Controller
     {
         $homeImage = new HomeImage();
         $homeImage->title = $request->title;
-        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/home-image');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
+        }else{
+            $filename = 'default.png';
         }
         $homeImage->name = $filename;
         if($homeImage->save()){
@@ -61,8 +62,10 @@ class HomeImageController extends Controller
         $homeImage = HomeImage::findOrFail($id);
         $homeImage->title = $request->title;
         if($request->file('image') != null){
-            //Xoa anh cu~
-            File::delete('storage/home-image/'.$homeImage->name);
+            if($homeImage->name != 'default.png'){
+                //Xoa anh cu~
+                File::delete('storage/home-image/'.$homeImage->name);
+            }
             $image = $request->file('image')->store('public/home-image');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -81,7 +84,10 @@ class HomeImageController extends Controller
     public function destroy(Request $request, $id)
     {
         $homeImage = HomeImage::findOrFail($id);
-        File::delete('storage/home-image/'.$homeImage->name);
+        if($homeImage->name != 'default.png'){
+            //Xoa anh cu~
+            File::delete('storage/home-image/'.$homeImage->name);
+        }
         if($homeImage->delete()){
             $request->session()->flash('success','Delete successfully!');
         }else{

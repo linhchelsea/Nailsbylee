@@ -45,11 +45,12 @@ class CustomerReviewController extends Controller
         $review = new CustomerReview();
         $review->name = $request->fullname;
         $review->content = $request->reviewContent;
-        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/reviews');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
+        }else{
+            $filename = 'avatar.png';
         }
         $review->image = $filename;
         if($review->save()){
@@ -85,8 +86,11 @@ class CustomerReviewController extends Controller
         $review->name = $request->fullname;
         $review->content = $request->reviewContent;
         if($request->file('image') != null){
-            //Xoa anh cu~
-            File::delete('storage/reviews/'.$review->image);
+            if($review->image != 'avatar.png'){
+                //Xoa anh cu~
+                File::delete('storage/reviews/'.$review->image);
+            }
+
             $image = $request->file('image')->store('public/reviews');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -111,7 +115,10 @@ class CustomerReviewController extends Controller
     public function destroy(Request $request, $id)
     {
         $review = CustomerReview::findOrFail($id);
-        File::delete('storage/reviews/'.$review->image);
+        if($review->image != 'avatar.png'){
+            //Xoa anh cu~
+            File::delete('storage/reviews/'.$review->image);
+        }
         if($review->delete()){
             $request->session()->flash('success','Delete successfully!');
         }else{

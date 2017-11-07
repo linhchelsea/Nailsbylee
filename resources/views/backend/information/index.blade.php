@@ -10,6 +10,12 @@
                 @endforeach
             </ul>
         @endif
+            @if(Session::has('fail'))
+                <div class="alert alert-danger"><p><strong>{{ Session::get('fail') }}</strong></p></div>
+            @endif
+            @if(Session::has('success'))
+                <div class="alert alert-success"><p><strong>{{ Session::get('success') }}</strong></p></div>
+            @endif
         <div class="box box-primary">
             <div class="box-header with-border" style="background-color: #c4e3f3;" >
                 <h3 style="margin: 0px 5px; color: #0d6496;">
@@ -17,12 +23,6 @@
                 </h3>
             </div>
             <div class="box-body">
-                @if(Session::has('fail'))
-                    <div class="alert alert-danger"><p><strong>{{ Session::get('fail') }}</strong></p></div>
-                @endif
-                @if(Session::has('success'))
-                    <div class="alert alert-success"><p><strong>{{ Session::get('success') }}</strong></p></div>
-                @endif
                 <div class="row">
                     <form method="POST" action="{{ route('inforUpdate') }}" accept-charset="UTF-8" id="information" class="informationForm">
                         {{ csrf_field() }}

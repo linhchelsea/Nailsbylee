@@ -44,11 +44,12 @@ class GalleryController extends Controller
     {
         $gallery = new Gallery();
         $gallery->title = $request->title;
-        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/gallery');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
+        }else{
+            $filename = 'default.png';
         }
         $gallery->image = $filename;
         if($gallery->save()){
@@ -84,8 +85,10 @@ class GalleryController extends Controller
         $gallery = Gallery::findOrFail($id);
         $gallery->title = $request->title;
         if($request->file('image') != null){
-            //Xoa anh cu~
-            File::delete('storage/gallery/'.$gallery->image);
+            if($gallery->image != 'default.png'){
+                //Xoa anh cu~
+                File::delete('storage/gallery/'.$gallery->image);
+            }
             $image = $request->file('image')->store('public/gallery');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -110,7 +113,10 @@ class GalleryController extends Controller
     public function destroy(Request $request,$id)
     {
         $gallery = Gallery::findOrFail($id);
-        File::delete('storage/gallery/'.$gallery->image);
+        if($gallery->image != 'default.png'){
+            //Xoa anh cu~
+            File::delete('storage/gallery/'.$gallery->image);
+        }
         if($gallery->delete()){
             $request->session()->flash('success','Delete successfully!');
         }else{

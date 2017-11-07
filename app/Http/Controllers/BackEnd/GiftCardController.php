@@ -28,11 +28,12 @@ class GiftCardController extends Controller
     {
         $giftCard = new GiftCard();
         $giftCard->title = $request->title;
-        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/gift-card');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
+        }else{
+            $filename = 'default.png';
         }
         $giftCard->image = $filename;
         if($giftCard->save()){
@@ -54,8 +55,10 @@ class GiftCardController extends Controller
         $giftCard = GiftCard::findOrFail($id);
         $giftCard->title = $request->title;
         if($request->file('image') != null){
-            //Xoa anh cu~
-            File::delete('storage/gift-card/'.$giftCard->image);
+            if($giftCard->image != 'default.png'){
+                //Xoa anh cu~
+                File::delete('storage/gift-card/'.$giftCard->image);
+            }
             $image = $request->file('image')->store('public/gift-card');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -74,7 +77,10 @@ class GiftCardController extends Controller
     public function destroy(Request $request,$id)
     {
         $giftCard = GiftCard::findOrFail($id);
-        File::delete('storage/gift-card/'.$giftCard->image);
+        if($giftCard->image != 'default.png'){
+            //Xoa anh cu~
+            File::delete('storage/gift-card/'.$giftCard->image);
+        }
         if($giftCard->delete()){
             $request->session()->flash('success','Delete successfully!');
         }else{

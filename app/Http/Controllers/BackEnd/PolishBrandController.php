@@ -42,11 +42,12 @@ class PolishBrandController extends Controller
         $polishBrand->name = $request->name;
         $polishBrand->description = $request->description;
         $polishBrand->price = $request->price;
-        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/polishbrand');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
+        }else{
+            $filename = 'default.png';
         }
         $polishBrand->image = $filename;
         $polishBrand->save();
@@ -80,8 +81,10 @@ class PolishBrandController extends Controller
         $polishbrand->description = $request->description;
         $polishbrand->price = $request->price;
         if($request->file('image') != null){
-            //Xoa anh cu~
-            File::delete('storage/polishbrand/'.$polishbrand->image);
+            if($polishbrand->image != 'default.png'){
+                //Xoa anh cu~
+                File::delete('storage/polishbrand/'.$polishbrand->image);
+            }
             $image = $request->file('image')->store('public/polishbrand');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -103,7 +106,10 @@ class PolishBrandController extends Controller
     public function destroy(Request $request, $id)
     {
         $polishbrand = PolishBrand::findOrFail($id);
-        File::delete('storage/polishbrand/'.$polishbrand->image);
+        if($polishbrand->image != 'default.png'){
+            //Xoa anh cu~
+            File::delete('storage/polishbrand/'.$polishbrand->image);
+        }
         $polishbrand->delete();
         $request->session()->flash('success','Delete successfully');
         return redirect()->back();

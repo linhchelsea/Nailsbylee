@@ -11,6 +11,7 @@ class InformationController extends Controller
     function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('IsAdmin');
     }
     public function index()
     {

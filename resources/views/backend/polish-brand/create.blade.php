@@ -51,7 +51,7 @@
                                     <label for="image">Choose one photo of Polish Brand <span style="color: red;">(Ratio - width x height - 2:1)</span> </label>
                                     <input class="form-control" name="image" type="file" id="image" onchange="viewImage(this)">
                                     <br>
-                                    <p><img id="image-show" src="{{ asset('/storage/polishbrand/noimage.png') }}" alt="avatar" class="img-responsive" width="300px" height="150px"></p>
+                                    <p><img id="image-show" src="{{ asset('/storage/polishbrand/default.png') }}" alt="avatar" class="img-responsive" width="300px" height="150px"></p>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
