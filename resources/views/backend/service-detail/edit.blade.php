@@ -60,10 +60,16 @@
                                     <textarea  class="form-control" name="description" id="description" rows="10" style="resize: none">{{ $serviceDetail->description }}</textarea>
                                 </div>
                                 <div class="col-sm-6">
-                                    <label for="image">Choose one photo of Service detail <span style="color: red;">(Ratio - width x height - 1:1)</span> </label>
+                                    <label for="image">Choose one photo of Service detail <span style="color: red;">(Ratio - width x height - 2:1)</span> </label>
                                     <input class="form-control" name="image" type="file" id="image" onchange="viewImage(this)">
                                     <br>
-                                    <p><img id="image-show" src="{{ asset('/storage/service-detail/'.$serviceDetail->image) }}" alt="no-image" class="img-responsive" width="200px" height="200px"></p>
+                                    <p>
+                                        @if(empty($serviceDetail->image))
+                                            <img id="image-show" src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="300px" height="150px">
+                                        @else
+                                            <img id="image-show" src="{{ asset('/storage/service-detail/'.$serviceDetail->image) }}" class="img-responsive" width="300px" height="150px">
+                                        @endif
+                                    </p>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

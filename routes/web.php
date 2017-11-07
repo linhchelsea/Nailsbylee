@@ -28,7 +28,7 @@ Route::group(['namespace'=>'FrontEnd'], function (){
     Route::get('/polish-brands','PolishBrandsController@index')->name('polishbrands');
     Route::get('/contact','ContactController@index')->name('contact');
     Route::get('/services','ServicesController@index')->name('services');
-    Route::get('/service-detail','ServiceDetailController@index')->name('servicedetail');
+    Route::get('/service-detail/{id}.php','ServiceDetailController@index')->name('servicedetail');
     Route::post('/contactStore', 'ContactController@store')->name('contactStore');
 });
 
