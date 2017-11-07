@@ -12,7 +12,8 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('frontend.contact');
+        $information = Information::findOrFail(1);
+        return view('frontend.contact', compact('information'));
     }
 
 

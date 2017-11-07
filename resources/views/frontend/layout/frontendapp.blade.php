@@ -46,7 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="nav navbar-right">
                     <li><a href="{{ route('homepage') }}" class="link-kumya scroll {{ Request::is('/')? 'active' : '' }}"><span data-letters="Home">Home</span></a></li>
                     <li><a href="{{ route('aboutus') }}" class="link-kumya {{ Request::is('aboutus')? 'active' : '' }}"><span data-letters="About Us">About Us</span></a></li>
-                    <li><a href="{{ route('services') }}" class="link-kumya {{ Request::is(['services','service-detail'])? 'active' : '' }}"><span data-letters="Services">Services</span></a></li>
+                    <li><a href="{{ route('services') }}" class="link-kumya {{ Request::is(['services','service-detail/*'])? 'active' : '' }}"><span data-letters="Services">Services</span></a></li>
                     <li><a href="{{ route('gallery') }}" class="link-kumya {{ Request::is('gallery')? 'active' : '' }}"><span data-letters="Gallery">Gallery</span></a></li>
                     <li><a href="{{ route('polishbrands') }}" class="link-kumya {{ Request::is('polish-brands')? 'active' : '' }}"><span data-letters="Polish Brands">Polish Brands</span></a></li>
                     <li><a href="{{ route('giftcards') }}" class="link-kumya {{ Request::is('gift-cards')? 'active' : '' }}"><span data-letters="Gift Cards">Gift Cards</span></a></li>
@@ -62,15 +62,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="footer">
     <div class="container">
         <ul class="footer-list">
-            <li><i class="fa fa-map-marker fa-lg" aria-hidden="true" style="padding-right: 10px"></i>535 W SW Loop 323 #203 Tyler, TX 75701</li>
-            <li><i class="fa fa-phone-square fa-lg" aria-hidden="true" style="padding-right: 10px"></i>+(903) 939-0572</li>
-            <li><i class="fa fa-envelope fa-lg" aria-hidden="true" style="padding-right: 10px"></i>nailsbylee@gmail.com</li>
+            <li><i class="fa fa-map-marker fa-lg" aria-hidden="true" style="padding-right: 10px"></i>{{$information->address}}</li>
+            <li><i class="fa fa-phone-square fa-lg" aria-hidden="true" style="padding-right: 10px"></i>{{$information->phone}}</li>
+            <li><i class="fa fa-envelope fa-lg" aria-hidden="true" style="padding-right: 10px"></i>{{$information->email}}</li>
             <li style="border-right: none;">
                 <div class="footer-bottom">
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true" ></i><span>Facebook</span></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram </span></a>
-                    <a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span>Pinterest </span></a>
+                    <a href="{{$information->facebook}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true" ></i><span>Facebook</span></a>
+                    <a href="{{$information->twitter}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+                    <a href="{{$information->instagram}}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram </span></a>
+                    {{--<a href="#" target="_blank"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span>Pinterest </span></a>--}}
                 </div>
             </li>
         </ul>

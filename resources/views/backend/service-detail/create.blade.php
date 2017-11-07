@@ -59,7 +59,7 @@
                                     <textarea  class="form-control" name="description" id="description" rows="10" style="resize: none"></textarea>
                                 </div>
                                 <div class="col-sm-6">
-                                    <label for="image">Choose one photo of Service detail <span style="color: red;">(Ratio - width x height - 1:1)</span> </label>
+                                    <label for="image">Choose one photo of Service detail <span style="color: red;">(Ratio - width x height - 2:1)</span> </label>
                                     <input class="form-control" name="image" type="file" id="image" onchange="viewImage(this)">
                                     <br>
                                     <p><img id="image-show" src="{{ asset('/storage/default.png') }}" alt="no-image" class="img-responsive" width="200px" height="200px"></p>
