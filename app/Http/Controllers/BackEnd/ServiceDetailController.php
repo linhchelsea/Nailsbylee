@@ -57,12 +57,11 @@ class ServiceDetailController extends Controller
         $serviceDetail->price = $request->price;
         $serviceDetail->time = $request->time;
         $serviceDetail->description = $request->description;
+        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/service-detail');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
-        }else{
-            $filename = 'default.png';
         }
         $serviceDetail->image = $filename;
         if($serviceDetail->save()){

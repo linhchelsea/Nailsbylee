@@ -44,12 +44,11 @@ class ServiceController extends Controller
         $service->description = $request->description;
         $service->preview = $request->preview;
         $service->atHome = 0;
+        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/service');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
-        }else{
-            $filename = 'default.png';
         }
         $service->image = $filename;
         if($service->save()){
@@ -66,6 +65,13 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function show($id)
+    {
+        $service = Service::findOrFail($id);
+        return view('backend.service.show',compact('service'));
+    }
+
     public function edit($id)
     {
         $service = Service::findOrFail($id);

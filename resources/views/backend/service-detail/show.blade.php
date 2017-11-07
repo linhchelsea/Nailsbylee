@@ -38,11 +38,11 @@
                                 </tr>
                                 <tr>
                                     <td>Time</td>
-                                    <td>{{ $serviceDetail->time }}$</td>
+                                    <td>{{ $serviceDetail->time }}</td>
                                 </tr>
                                 <tr>
                                     <td>Description</td>
-                                    <td>{{ $serviceDetail->description }}$</td>
+                                    <td>{{ $serviceDetail->description }}</td>
                                 </tr>
                                 <tr>
                                     <td>Created At</td>
@@ -54,7 +54,13 @@
                                 </tr>
                                 <tr>
                                     <td>Image</td>
-                                    <td><img src="{{ url('storage/service-detail/'.$serviceDetail->image) }}" width="200px"></td>
+                                    <td>
+                                        @if(empty($serviceDetail->image))
+                                            <img src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="400px" height="200px">
+                                        @else
+                                            <img src="{{ asset('/storage/service-detail/'.$serviceDetail->image) }}" alt="image" id="service" width="400px" height="200px">
+                                        @endif
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

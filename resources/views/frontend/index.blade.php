@@ -29,7 +29,7 @@
         <div class="row row-eq-height">
             @foreach($services as $service)
                 <div class="col-md-3 about-grid">
-                    <a href="{{ route('servicedetail') }}" title="{{$service->name}}">
+                    <a href="{{ route('servicedetail', $service->id) }}" title="{{$service->name}}">
                         <div class="view view-first">
                             @if(empty($service->image))
                                 <img src="{{asset('images/noimage-public.png')}}" class="img-responsive" alt="noImage"/>
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     </a>
-                    <h3 style="text-align: center;"><a href="{{ route('servicedetail') }}">{{$service->name}}</a></h3>
+                    <h3 style="text-align: center;"><a href="{{ route('servicedetail', $service->id) }}">{{$service->name}}</a></h3>
                     <p style="text-align: center;" class="service_desc">{{$service->preview}}</p>
                 </div>
             @endforeach
