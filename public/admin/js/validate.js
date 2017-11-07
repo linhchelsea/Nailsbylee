@@ -25,33 +25,162 @@ $( document ).ready( function () {
             	required: true,
 				minlength: 2,
 				maxlenght: 100
-			}
-        },
-        messages: {
+			},
+            level: {
+                required: true,
+                min : 0,
+                max : 1
+            }
+        }
+    });
+
+    $( ".userUpdateForm" ).validate( {
+        rules: {
+            fullname: {
+                required: true,
+                minlength: 2,
+                maxlenght: 100
+            }
+        }
+    });
+
+    $( ".service-detailForm" ).validate( {
+        rules: {
             name: {
-                required: "Please enter username",
-                minlength: "Please enter at least 2 characters.",
-                maxlength: "Please enter no more than 32 characters.",
+                required: true,
+                minlength: 2,
+                maxlength: 32,
+            },
+            price: {
+                required: true,
+                minlength: 1,
+                maxlength: 20,
+            },
+            time:{
+                required: true,
+                minlenght: 2,
+            },
+            description:{
+                required: true,
+                minlenght: 6,
+            }
+        }
+    });
+
+
+    $( ".serviceForm" ).validate( {
+        rules: {
+            name: {
+                required: true,
+                minlength: 6,
+                maxlength: 32,
+            },
+            preview: {
+                required: true,
+                minlength: 6,
+                maxlength: 200,
+            },
+            description:{
+                required: true,
+                minlenght: 6,
+            }
+        }
+    });
+
+    $( ".polishBrandForm" ).validate( {
+        rules: {
+            name: {
+                required: true,
+                minlength: 6,
+                maxlength: 32,
+            },
+            price: {
+                required: true,
+                minlength: 1,
+                maxlength: 20,
+            },
+            description:{
+                required: true,
+                minlenght: 6,
+            }
+        }
+    });
+    $( ".informationForm" ).validate( {
+        rules: {
+            name: {
+                required: true,
+                minlength: 6,
+                maxlength: 32,
             },
             email: {
-                required: "Please enter email",
-                minlength: "Please enter at least 7 characters.",
-                maxlength: "Please enter no more than 200 characters.",
+                required: true,
+                minlength: 10,
+                maxlength: 200,
             },
-            password:{
-                required: "Please enter password",
-                minlength: "Please enter at least 6 characters.",
-                maxlength: "Please enter no more than 32 characters.",
+            phone: {
+                required: true,
+                minlength: 3,
+                maxlength: 20,
             },
-            password_confirmation:{
-                required: "Please enter password confirmation",
-                minlength: "Please enter at least 6 characters.",
-                maxlength: "Please enter no more than 32 characters.",
+            facebook: {
+                required: true,
+                minlength: 20,
+                maxlength: 300,
             },
+            twitter: {
+                required: true,
+                minlength: 20,
+                maxlength: 300,
+            },
+            instagram: {
+                required: true,
+                minlength: 20,
+                maxlength: 300,
+            },
+            address:{
+                required: true,
+                minlenght: 6,
+            }
+        }
+    });
+
+    $( ".reviewForm" ).validate( {
+        rules: {
             fullname: {
-                required: "Please enter fullname",
-                minlength: "Please enter at least 2 characters.",
-                maxlength: "Please enter no more than 100 characters.",
+                required: true,
+                minlength: 2,
+                maxlenght: 100
+            },
+            reviewContent:{
+                required: true,
+                minlenght: 6,
+            },
+        }
+    });
+    $( ".galleryForm" ).validate( {
+        rules: {
+            title: {
+                required: true,
+                minlength: 2,
+                maxlenght: 200
+            }
+        }
+    });
+    $( ".giftCardForm" ).validate( {
+        rules: {
+            title: {
+                required: true,
+                minlength: 2,
+                maxlenght: 200
+            }
+        }
+    });
+    $( ".homeImageForm" ).validate( {
+        rules: {
+            title: {
+                required: true,
+                minlength: 2,
+                maxlenght: 200
             }
         }
     });

@@ -21,14 +21,14 @@
                         <div class="alert alert-danger"><p><strong>{{ Session::get('fail') }}</strong></p></div>
                     @endif
                     <div class="row  col-lg-offset-1">
-                        <form method="POST" action="{{ route('polishbrand.update', $polishbrand->id) }}" accept-charset="UTF-8" id="updateBrand" class="polishBrandForm" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('polishbrand.update', $polishbrand->id) }}" accept-charset="UTF-8" id="polishBrand" class="polishBrandForm" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <input type="hidden" name="_method" value="PUT">
                             <div class="form-group">
                                 <!-- Name Field -->
                                 <div class="col-sm-10">
                                     <label for="name">Name</label>
-                                    <input class="form-control" name="name" type="text" id="name" value="{{ $polishbrand->name }}" placeholder="{{ $polishbrand->name }}">
+                                    <input class="form-control" name="name" type="text" id="name" value="{{ $polishbrand->name }}">
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -43,7 +43,7 @@
                                 <!-- Price Field -->
                                 <div class="col-sm-10">
                                     <label for="price">Price</label>
-                                    <input class="form-control" name="price" type="text" id="price" value="{{ $polishbrand->price }}" placeholder="{{ $polishbrand->price }}">
+                                    <input class="form-control" name="price" type="text" id="price" value="{{ $polishbrand->price }}">
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -64,7 +64,7 @@
                                 <!-- Submit Field -->
                                 <div class="col-sm-12">
                                     <button class="btn btn-warning" type="button" onclick="window.location='{{ url()->previous() }}';" style="margin-left: 5px;"><i class="fa fa-reply-all" aria-hidden="true"></i> BACK</button>
-                                    <button type="submit" form="updateBrand" class="btn btn-primary" name="submit" value="UPDATE"><i class="glyphicon glyphicon-edit"></i> UPDATE</button>
+                                    <button type="submit" form="polishBrand" class="btn btn-primary" name="submit" value="UPDATE"><i class="glyphicon glyphicon-edit"></i> UPDATE</button>
                                 </div>
                             </div>
                         </form>

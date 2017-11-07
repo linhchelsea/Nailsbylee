@@ -46,8 +46,11 @@ class AboutUsController extends Controller
     {
         $aboutUs = AboutUs::findOrFail(1);
         $aboutUs->detail = $request->detail;
+        if($aboutUs->detail == null){
+            $request->session()->flash('fail','Detail is required!');
+            return redirect()->back();
+        }
         if($request->file('image') != null){
-
             if($aboutUs->image != 'aboutus.jpg'){
                 //Xoa anh cu~
                 File::delete('storage/aboutUs/'.$aboutUs->image);

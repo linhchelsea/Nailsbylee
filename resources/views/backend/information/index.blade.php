@@ -13,7 +13,7 @@
         <div class="box box-primary">
             <div class="box-header with-border" style="background-color: #c4e3f3;" >
                 <h3 style="margin: 0px 5px; color: #0d6496;">
-                    ABOUT US
+                    INFORMATION
                 </h3>
             </div>
             <div class="box-body">
