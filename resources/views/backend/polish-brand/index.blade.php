@@ -19,7 +19,7 @@
                             POLISH BRANDS
                         </h3>
                         <div class="pull-right" style="margin: 0px 10px;">
-                            <a class="btn btn-success pull-right" href="{{ route('polishbrand.create') }}"><i class="glyphicon glyphicon-plus"></i> New review</a>
+                            <a class="btn btn-success pull-right" href="{{ route('polishbrand.create') }}"><i class="glyphicon glyphicon-plus"></i> New polish brand</a>
                         </div>
                     </div>
                     <div class="box-body table-responsive">
@@ -65,7 +65,7 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="5" class="text-center text-blue">
+                                    <td colspan="6" class="text-center text-blue">
                                         <h4><span style="font-style: inherit">No Polish Brand to show</span></h4>
                                     </td>
                                 </tr>

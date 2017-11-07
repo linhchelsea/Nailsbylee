@@ -21,7 +21,7 @@
                         <div class="alert alert-danger"><p><strong>{{ Session::get('fail') }}</strong></p></div>
                     @endif
                     <div class="row  col-lg-offset-1">
-                        <form method="POST" action="{{ route('review.store') }}" accept-charset="UTF-8" id="createReview" class="reviewForm" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('review.store') }}" accept-charset="UTF-8" id="review" class="reviewForm" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <!-- Fullname Field -->
@@ -51,7 +51,7 @@
                                 <!-- Submit Field -->
                                 <div class="col-sm-12">
                                     <button class="btn btn-warning" type="button" onclick="window.location='{{ url()->previous() }}';" style="margin-left: 5px;"><i class="fa fa-reply-all" aria-hidden="true"></i> BACK</button>
-                                    <button type="submit" form="createReview" class="btn btn-primary" name="submit" value="CREATE"><i class="glyphicon glyphicon-edit"></i> CREATE</button>
+                                    <button type="submit" form="review" class="btn btn-primary" name="submit" value="CREATE"><i class="glyphicon glyphicon-edit"></i> CREATE</button>
                                 </div>
                             </div>
                         </form>
