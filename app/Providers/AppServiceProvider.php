@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//       \URL::forceScheme('https');
+       \URL::forceScheme('https');
         if(!file_exists(public_path('storage'))) {
             App::make('files')->link(storage_path('app/public'), public_path('storage'));
         }
