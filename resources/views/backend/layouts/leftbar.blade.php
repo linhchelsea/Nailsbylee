@@ -12,6 +12,7 @@
                 <i class="fa fa-bar-chart"></i> <span>Dashboard</span>
             </a>
         </li>
+        @if(Auth::user()->isAdmin == 1)
         <li class="{{ Request::is('admin/users*')? 'active' : '' }}">
             <a href="{{ route('users.index') }}">
                 <i class="fa fa-user"></i> <span>User</span>
@@ -27,6 +28,7 @@
                 <i class="fa fa-info-circle"></i> <span>Information</span>
             </a>
         </li>
+        @endif
         <li class="{{ Request::is('admin/home-image*')? 'active' : '' }}">
             <a href="{{ route('home-image.index') }}">
                 <i class="fa fa-picture-o" aria-hidden="true"></i> <span>Image slider</span>
@@ -62,6 +64,10 @@
                 <i class="fa fa-envelope"></i> <span>Contact</span>
             </a>
         </li>
-
+        <li class="{{ Request::is('admin/review*')? 'active' : '' }}">
+            <a href="{{ route('review.index') }}">
+                <i class="fa fa-envelope"></i> <span>Customer Review</span>
+            </a>
+        </li>
     </ul>
 </section>
