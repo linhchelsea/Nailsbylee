@@ -13,18 +13,18 @@ $( document ).ready( function () {
             },
 			password:{
             	required: true,
-				minlenght: 6,
-				maxlenght:32
+				minlength: 6,
+				maxlength:32
 			},
             password_confirmation:{
             	required: true,
-				minlenght: 6,
-				maxlenght:32
+				minlength: 6,
+				maxlength:32
 			},
 			fullname: {
             	required: true,
 				minlength: 2,
-				maxlenght: 100
+				maxlength: 100
 			},
             level: {
                 required: true,
@@ -39,7 +39,7 @@ $( document ).ready( function () {
             fullname: {
                 required: true,
                 minlength: 2,
-                maxlenght: 100
+                maxlength: 100
             }
         }
     });
@@ -53,16 +53,14 @@ $( document ).ready( function () {
             },
             price: {
                 required: true,
-                minlength: 1,
-                maxlength: 20,
+                maxlength: 10,
             },
             time:{
                 required: true,
-                minlenght: 2,
             },
             description:{
                 required: true,
-                minlenght: 6,
+                minlength: 6,
             }
         }
     });
@@ -72,7 +70,7 @@ $( document ).ready( function () {
         rules: {
             name: {
                 required: true,
-                minlength: 6,
+                minlength: 2,
                 maxlength: 32,
             },
             preview: {
@@ -82,7 +80,7 @@ $( document ).ready( function () {
             },
             description:{
                 required: true,
-                minlenght: 6,
+                minlength: 6,
             }
         }
     });
@@ -91,7 +89,7 @@ $( document ).ready( function () {
         rules: {
             name: {
                 required: true,
-                minlength: 6,
+                minlength: 2,
                 maxlength: 32,
             },
             price: {
@@ -101,7 +99,7 @@ $( document ).ready( function () {
             },
             description:{
                 required: true,
-                minlenght: 6,
+                minlength: 6,
             }
         }
     });
@@ -114,32 +112,28 @@ $( document ).ready( function () {
             },
             email: {
                 required: true,
-                minlength: 10,
+                minlength: 6,
                 maxlength: 200,
             },
             phone: {
                 required: true,
-                minlength: 3,
                 maxlength: 20,
             },
             facebook: {
                 required: true,
-                minlength: 20,
                 maxlength: 300,
             },
             twitter: {
                 required: true,
-                minlength: 20,
                 maxlength: 300,
             },
             instagram: {
                 required: true,
-                minlength: 20,
                 maxlength: 300,
             },
             address:{
                 required: true,
-                minlenght: 6,
+                minlength: 6,
             }
         }
     });
@@ -149,11 +143,11 @@ $( document ).ready( function () {
             fullname: {
                 required: true,
                 minlength: 2,
-                maxlenght: 100
+                maxlength: 100
             },
             reviewContent:{
                 required: true,
-                minlenght: 6,
+                minlength: 6,
             },
         }
     });
@@ -162,7 +156,7 @@ $( document ).ready( function () {
             title: {
                 required: true,
                 minlength: 2,
-                maxlenght: 200
+                maxlength: 200
             }
         }
     });
@@ -171,7 +165,7 @@ $( document ).ready( function () {
             title: {
                 required: true,
                 minlength: 2,
-                maxlenght: 200
+                maxlength: 200
             }
         }
     });
@@ -180,7 +174,53 @@ $( document ).ready( function () {
             title: {
                 required: true,
                 minlength: 2,
-                maxlenght: 200
+                maxlength: 200
+            }
+        }
+    });
+
+    $( ".contactForm" ).validate( {
+        rules: {
+            Name: {
+                required: true,
+            },
+            Email: {
+                required: true,
+                email: true
+            },
+            Phone: {
+                required: true,
+            },
+            Message: {
+                required: true,
+            }
+        },
+        message: {
+            Name: {
+                required: "Please fill in this field"
+            },
+            Email: {
+                required: "Please fill in this field",
+                email: "Invalid email format"
+            },
+            Phone: {
+                required: "Please fill in this field",
+            },
+            Message: {
+                required: "Please fill in this field"
+            }
+        }
+    });
+
+    $( ".aboutForm" ).validate( {
+        ignore: [],
+        rules: {
+            detail: {
+                required: function()
+                {
+                    CKEDITOR.instances.intro.updateElement();
+                },
+                minlength: 6
             }
         }
     });

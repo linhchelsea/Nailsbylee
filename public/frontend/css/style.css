@@ -623,6 +623,34 @@ display:inline-block;
   padding: 10px 0;
   resize: none;
 }
+.error{
+    color: #7d230d;
+}
+.grid_2 input[type="text"]::-webkit-input-placeholder {
+    color:#7d230d;
+}
+.grid_2 input[type="text"]:-moz-placeholder {
+    color:#7d230d;
+}
+.grid_2 input[type="text"]::-moz-placeholder {
+    color:#7d230d;
+}
+.grid_2 input[type="text"]:-ms-input-placeholder {
+    color:#7d230d;
+}
+.grid_2 textarea::-webkit-input-placeholder {
+    color:#7d230d;
+}
+.grid_2 textarea:-moz-placeholder {
+    color:#7d230d;
+}
+.grid_2 textarea::-moz-placeholder {
+    color:#7d230d;
+}
+.grid_2 textarea:-ms-input-placeholder {
+    color:#7d230d;
+}
+
 .grid_2 textarea {
   width:100%;
 }
@@ -971,7 +999,30 @@ ul.text-list{
   text-transform: uppercase;
   font-weight:300;
     border-radius: 10px;
-
+}
+.left_grid input[type="text"]::-webkit-input-placeholder {
+    color:#7d230d;
+}
+.left_grid input[type="text"]:-moz-placeholder {
+    color:#7d230d;
+}
+.left_grid input[type="text"]::-moz-placeholder {
+    color:#7d230d;
+}
+.left_grid input[type="text"]:-ms-input-placeholder {
+    color:#7d230d;
+}
+.left_grid input[type="text"], .right_grid textarea::-webkit-input-placeholder {
+    color:#7d230d;
+}
+.left_grid input[type="text"], .right_grid textarea:-moz-placeholder {
+    color:#7d230d;
+}
+.left_grid input[type="text"], .right_grid textarea::-moz-placeholder {
+    color:#7d230d;
+}
+.left_grid input[type="text"], .right_grid textarea:-ms-input-placeholder {
+    color:#7d230d;
 }
 .right_grid textarea{
   resize:none;
