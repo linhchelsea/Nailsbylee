@@ -7,8 +7,8 @@
                 <i class="fa fa-home"></i> <span>Home page</span>
             </a>
         </li>
-        <li class="{{ Request::is('admin/homepage')? 'active' : '' }}">
-            <a href="{{ route('homepage') }}">
+        <li class="{{ Request::is('admin/index')? 'active' : '' }}">
+            <a href="{{ route('index') }}">
                 <i class="fa fa-bar-chart"></i> <span>Dashboard</span>
             </a>
         </li>

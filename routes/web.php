@@ -19,6 +19,7 @@ Route::group(['prefix'=> 'admin','namespace'=>'BackEnd'],function (){
     Route::get('profile', 'UserController@profile')->name('profile');
     Route::post('/replyContact','ContactController@replyContact')->name('replyContact');
     Route::post('/updateFeatureService','ServiceController@UpdateFeatureService')->name('updateFeatureService');
+    Route::get('/index','HomeController@index')->name('index');
 });
 Route::group(['namespace'=>'FrontEnd'], function (){
     Route::get('/','HomeController@index')->name('homepage');

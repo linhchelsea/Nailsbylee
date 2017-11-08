@@ -33,15 +33,15 @@
                     <p style="font-family: 'Tangerine', cursive; font-size: 2.8em;text-align: center;">{{ Session::get('success') }}</p>
                 </div>
             @endif
-            <form method="post" action="{{ route('contactStore') }}" accept-charset="UTF-8">
+            <form method="post" action="{{ route('contactStore') }}" accept-charset="UTF-8" class="contactForm">
                 {{ csrf_field() }}
                 <div class="col-sm-12 col-md-4 left_grid">
-                    <input type="text" class="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-                    <input type="text" class="text" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-                    <input type="text" class="text" name="Phone" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}">
+                    <input type="text" class="text" name="Name" placeholder="Name" style="color: ">
+                    <input type="text" class="text" name="Email" placeholder="Email">
+                    <input type="text" class="text" name="Phone" placeholder="Phone">
                 </div>
                 <div class="col-sm-12 col-md-8 right_grid">
-                    <textarea name="Message" value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+                    <textarea name="Message" placeholder="Message"></textarea>
                 </div>
                 <div class="form-submit1">
                     <input name="submit" type="submit" id="submit" value="Send Message">
@@ -50,4 +50,6 @@
             </form>
         </div>
     </div>
+    <script src="{{ asset('admin/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/validate.js') }}" type="text/javascript"></script>
 @endsection
