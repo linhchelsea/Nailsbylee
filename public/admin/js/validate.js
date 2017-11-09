@@ -4,7 +4,7 @@ $( document ).ready( function () {
             name: {
                 required: true,
                 minlength: 2,
-                maxlength: 32,
+                maxlength: 100,
             },
             email: {
                 required: true,
@@ -25,12 +25,7 @@ $( document ).ready( function () {
             	required: true,
 				minlength: 2,
 				maxlength: 100
-			},
-            level: {
-                required: true,
-                min : 0,
-                max : 1
-            }
+			}
         }
     });
 
@@ -49,7 +44,7 @@ $( document ).ready( function () {
             name: {
                 required: true,
                 minlength: 2,
-                maxlength: 32,
+                maxlength: 100,
             },
             price: {
                 required: true,
@@ -71,7 +66,7 @@ $( document ).ready( function () {
             name: {
                 required: true,
                 minlength: 2,
-                maxlength: 32,
+                maxlength: 100,
             },
             preview: {
                 required: true,
@@ -90,12 +85,12 @@ $( document ).ready( function () {
             name: {
                 required: true,
                 minlength: 2,
-                maxlength: 32,
+                maxlength: 100,
             },
             price: {
                 required: true,
                 minlength: 1,
-                maxlength: 20,
+                maxlength: 10,
             },
             description:{
                 required: true,
@@ -108,7 +103,7 @@ $( document ).ready( function () {
             name: {
                 required: true,
                 minlength: 6,
-                maxlength: 32,
+                maxlength: 200,
             },
             email: {
                 required: true,
@@ -179,7 +174,7 @@ $( document ).ready( function () {
         }
     });
 
-    $( ".contactForm" ).validate( {
+    $( ".contactFormasd" ).validate( {
         rules: {
             Name: {
                 required: true,

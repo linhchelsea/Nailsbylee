@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use App\Http\Requests\PolishBrandRequest;
 use App\PolishBrand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,7 +37,7 @@ class PolishBrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PolishBrandRequest $request)
     {
         $polishBrand = new PolishBrand();
         $polishBrand->name = $request->name;
@@ -74,7 +75,7 @@ class PolishBrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PolishBrandRequest $request, $id)
     {
         $polishbrand = PolishBrand::findOrFail($id);
         $polishbrand->name = $request->name;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\HomeImage;
+use App\Http\Requests\HomeImageRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -30,7 +31,7 @@ class HomeImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HomeImageRequest $request)
     {
         $homeImage = new HomeImage();
         $homeImage->title = $request->title;
@@ -57,7 +58,7 @@ class HomeImageController extends Controller
         return view('backend.homeimage.edit', compact('homeImage'));
     }
 
-    public function update(Request $request, $id)
+    public function update(HomeImageRequest $request, $id)
     {
         $homeImage = HomeImage::findOrFail($id);
         $homeImage->title = $request->title;

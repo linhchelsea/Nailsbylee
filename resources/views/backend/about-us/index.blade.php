@@ -97,11 +97,10 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="upload">Choose File:</label>
-                            <input type="file" class="form-control" id="video" name="video" required>
+                            <input type="file" class="form-control" id="video" name="video" onchange="uploadMedia()" required>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-info">Save</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </form>

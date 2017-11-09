@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\CustomerReview;
+use App\Http\Requests\ReviewRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -40,7 +41,7 @@ class CustomerReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReviewRequest $request)
     {
         $review = new CustomerReview();
         $review->name = $request->fullname;
@@ -80,7 +81,7 @@ class CustomerReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ReviewRequest $request, $id)
     {
         $review = CustomerReview::findOrFail($id);
         $review->name = $request->fullname;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\GiftCard;
+use App\Http\Requests\GiftCardRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -24,7 +25,7 @@ class GiftCardController extends Controller
         return view('backend.giftcard.create');
     }
 
-    public function store(Request $request)
+    public function store(GiftCardRequest $request)
     {
         $giftCard = new GiftCard();
         $giftCard->title = $request->title;
@@ -50,7 +51,7 @@ class GiftCardController extends Controller
         return view('backend.giftcard.edit',compact('giftCard'));
     }
 
-    public function update(Request $request, $id)
+    public function update(GiftCardRequest $request, $id)
     {
         $giftCard = GiftCard::findOrFail($id);
         $giftCard->title = $request->title;
