@@ -37,11 +37,7 @@
                                     <tr>
                                         <td class="text-center" style="width: 50%">{{ $giftCard->title }}</td>
                                         <td class="text-center">
-                                            @if(empty($giftCard->image))
-                                                <img src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="200px">
-                                            @else
-                                                <img src="{{ asset('/storage/gift-card/'.$giftCard->image) }}" alt="image" width="200px">
-                                            @endif
+                                             <img src="{{ asset('/storage/gift-card/'.$giftCard->image) }}" alt="image" width="200px">
                                         </td>
                                         <td class="text-center">
                                             <form method="POST" action="{{ route('gift-card.destroy', $giftCard->id) }}" accept-charset="UTF-8">

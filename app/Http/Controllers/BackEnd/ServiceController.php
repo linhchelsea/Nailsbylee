@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use App\Http\Requests\ServiceRequest;
 use App\Service;
 use App\ServiceDetail;
 use Illuminate\Http\Request;
@@ -37,18 +38,19 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
         $service = new Service();
         $service->name = $request->name;
         $service->description = $request->description;
         $service->preview = $request->preview;
         $service->atHome = 0;
-        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/service');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
+        }else{
+            $filename = 'default.png';
         }
         $service->image = $filename;
         if($service->save()){
@@ -85,7 +87,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ServiceRequest $request, $id)
     {
         $service = Service::findOrFail($id);
         $service->name = $request->name;

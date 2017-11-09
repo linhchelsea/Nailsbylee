@@ -43,11 +43,7 @@
                                         <td style="width: 40%">{{ $brand->description }}</td>
                                         <td class="text-center" style="width: 20%">{{ $brand->price }}</td>
                                         <td class="text-center">
-                                            @if(empty($brand->image))
-                                                <img src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="300px" height="150px">
-                                            @else
-                                                <img src="{{ asset('/storage/polishbrand/'.$brand->image) }}" alt="image" id="polishbrand" width="300px" height="150px">
-                                            @endif
+                                             <img src="{{ asset('/storage/polishbrand/'.$brand->image) }}" alt="image" id="polishbrand" width="300px" height="150px">
                                         </td>
                                         <td class="text-center">
                                             <form style="width: 130px;" method="POST" action="{{ route('polishbrand.destroy', $brand->id) }}" accept-charset="UTF-8">

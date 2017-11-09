@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\AboutUs;
+use App\Http\Requests\AboutUsRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -12,6 +13,7 @@ class AboutUsController extends Controller
     function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('IsAdmin');
     }
     /**
      * Display a listing of the resource.
@@ -42,7 +44,7 @@ class AboutUsController extends Controller
         $request->session()->flash('success','New video was updated successfully!');
         return redirect()->route('about-us');
     }
-    public function update(Request $request)
+    public function update(AboutUsRequest $request)
     {
         $aboutUs = AboutUs::findOrFail(1);
         $aboutUs->detail = $request->detail;
@@ -70,5 +72,4 @@ class AboutUsController extends Controller
         }
         return redirect()->route('about-us');
     }
-
 }

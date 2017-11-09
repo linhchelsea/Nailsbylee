@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\GiftCard;
+use App\Http\Requests\GiftCardRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -24,15 +25,16 @@ class GiftCardController extends Controller
         return view('backend.giftcard.create');
     }
 
-    public function store(Request $request)
+    public function store(GiftCardRequest $request)
     {
         $giftCard = new GiftCard();
         $giftCard->title = $request->title;
-        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/gift-card');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
+        }else{
+            $filename = 'default.png';
         }
         $giftCard->image = $filename;
         if($giftCard->save()){
@@ -49,13 +51,15 @@ class GiftCardController extends Controller
         return view('backend.giftcard.edit',compact('giftCard'));
     }
 
-    public function update(Request $request, $id)
+    public function update(GiftCardRequest $request, $id)
     {
         $giftCard = GiftCard::findOrFail($id);
         $giftCard->title = $request->title;
         if($request->file('image') != null){
-            //Xoa anh cu~
-            File::delete('storage/gift-card/'.$giftCard->image);
+            if($giftCard->image != 'default.png'){
+                //Xoa anh cu~
+                File::delete('storage/gift-card/'.$giftCard->image);
+            }
             $image = $request->file('image')->store('public/gift-card');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -74,7 +78,10 @@ class GiftCardController extends Controller
     public function destroy(Request $request,$id)
     {
         $giftCard = GiftCard::findOrFail($id);
-        File::delete('storage/gift-card/'.$giftCard->image);
+        if($giftCard->image != 'default.png'){
+            //Xoa anh cu~
+            File::delete('storage/gift-card/'.$giftCard->image);
+        }
         if($giftCard->delete()){
             $request->session()->flash('success','Delete successfully!');
         }else{

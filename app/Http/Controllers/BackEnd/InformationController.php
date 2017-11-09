@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use App\Http\Requests\InformationRequest;
 use App\Information;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,6 +12,7 @@ class InformationController extends Controller
     function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('IsAdmin');
     }
     public function index()
     {
@@ -18,7 +20,7 @@ class InformationController extends Controller
         return view('backend.information.index' , compact('information') );
     }
 
-    public function update(Request $request)
+    public function update(InformationRequest $request)
     {
         $information = Information::findOrFail(1);
         $information->name = $request->name;

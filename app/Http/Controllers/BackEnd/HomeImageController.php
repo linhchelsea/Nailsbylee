@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\HomeImage;
+use App\Http\Requests\HomeImageRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -30,15 +31,16 @@ class HomeImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HomeImageRequest $request)
     {
         $homeImage = new HomeImage();
         $homeImage->title = $request->title;
-        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/home-image');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
+        }else{
+            $filename = 'default.png';
         }
         $homeImage->name = $filename;
         if($homeImage->save()){
@@ -56,13 +58,15 @@ class HomeImageController extends Controller
         return view('backend.homeimage.edit', compact('homeImage'));
     }
 
-    public function update(Request $request, $id)
+    public function update(HomeImageRequest $request, $id)
     {
         $homeImage = HomeImage::findOrFail($id);
         $homeImage->title = $request->title;
         if($request->file('image') != null){
-            //Xoa anh cu~
-            File::delete('storage/home-image/'.$homeImage->name);
+            if($homeImage->name != 'default.png'){
+                //Xoa anh cu~
+                File::delete('storage/home-image/'.$homeImage->name);
+            }
             $image = $request->file('image')->store('public/home-image');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -81,7 +85,10 @@ class HomeImageController extends Controller
     public function destroy(Request $request, $id)
     {
         $homeImage = HomeImage::findOrFail($id);
-        File::delete('storage/home-image/'.$homeImage->name);
+        if($homeImage->name != 'default.png'){
+            //Xoa anh cu~
+            File::delete('storage/home-image/'.$homeImage->name);
+        }
         if($homeImage->delete()){
             $request->session()->flash('success','Delete successfully!');
         }else{

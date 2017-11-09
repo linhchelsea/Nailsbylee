@@ -48,10 +48,8 @@
                             <!-- Image Field -->
                             <div class="col-sm-10 col-lg-offset-1">
                                 <label for="image"><h3>IMAGE</h3></label>
-                                <p><img id="image-show" src="{{ asset('/storage/aboutUs/'.$aboutUs->image) }}" alt="image" class="img-responsive" width="100%"></p>
-                                <label for="image">Choose image from your computer</label>
                                 <input class="form-control" name="image" type="file" id="image" onchange="viewImage(this)">
-                                <br>
+                                <p><img id="image-show" src="{{ asset('/storage/aboutUs/'.$aboutUs->image) }}" alt="image" class="img-responsive" width="100%"></p>
                             </div>
 
                             <div class="clearfix"></div>
@@ -99,11 +97,10 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="upload">Choose File:</label>
-                            <input type="file" class="form-control" id="video" name="video" required>
+                            <input type="file" class="form-control" id="video" name="video" onchange="uploadMedia()" required>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-info">Save</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use App\Contact;
+use App\Http\Requests\ContactRequest;
 use App\IndexImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,7 +18,7 @@ class ContactController extends Controller
     }
 
 
-    public function store(Request $request){
+    public function store(ContactRequest $request){
         $name = $request->Name;
         $email = $request->Email;
         $phone = $request->Phone;

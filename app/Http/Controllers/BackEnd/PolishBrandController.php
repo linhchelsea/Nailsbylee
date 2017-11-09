@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use App\Http\Requests\PolishBrandRequest;
 use App\PolishBrand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,17 +37,18 @@ class PolishBrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PolishBrandRequest $request)
     {
         $polishBrand = new PolishBrand();
         $polishBrand->name = $request->name;
         $polishBrand->description = $request->description;
         $polishBrand->price = $request->price;
-        $filename = "";
         if($request->file('image') != null){
             $image = $request->file('image')->store('public/polishbrand');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
+        }else{
+            $filename = 'default.png';
         }
         $polishBrand->image = $filename;
         $polishBrand->save();
@@ -73,15 +75,17 @@ class PolishBrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PolishBrandRequest $request, $id)
     {
         $polishbrand = PolishBrand::findOrFail($id);
         $polishbrand->name = $request->name;
         $polishbrand->description = $request->description;
         $polishbrand->price = $request->price;
         if($request->file('image') != null){
-            //Xoa anh cu~
-            File::delete('storage/polishbrand/'.$polishbrand->image);
+            if($polishbrand->image != 'default.png'){
+                //Xoa anh cu~
+                File::delete('storage/polishbrand/'.$polishbrand->image);
+            }
             $image = $request->file('image')->store('public/polishbrand');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -103,7 +107,10 @@ class PolishBrandController extends Controller
     public function destroy(Request $request, $id)
     {
         $polishbrand = PolishBrand::findOrFail($id);
-        File::delete('storage/polishbrand/'.$polishbrand->image);
+        if($polishbrand->image != 'default.png'){
+            //Xoa anh cu~
+            File::delete('storage/polishbrand/'.$polishbrand->image);
+        }
         $polishbrand->delete();
         $request->session()->flash('success','Delete successfully');
         return redirect()->back();

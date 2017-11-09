@@ -41,12 +41,7 @@
                             <div class="col-sm-10 col-lg-offset-1">
                                 <label for="image"><h3>IMAGE</h3></label>
                                 <input class="form-control" name="image" type="file" id="image" onchange="viewImage(this)">
-                                <p>
-                                    @if(empty($homeImage->name))
-                                        <img id="image-show" src="{{ asset('images/noimage-admin.png') }}" alt="noimage" id="noimage" width="100%">
-                                    @else
-                                        <img id="image-show" src="{{ asset('/storage/home-image/'.$homeImage->name) }}" alt="image" class="img-responsive" width="100%">
-                                    @endif
+                                    <img id="image-show" src="{{ asset('/storage/home-image/'.$homeImage->name) }}" alt="image" class="img-responsive" width="100%">
                                 </p>
                                 <br>
                             </div>

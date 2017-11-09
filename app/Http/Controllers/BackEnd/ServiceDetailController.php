@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use App\Http\Requests\ServiceDetailRequest;
 use App\Service;
 use App\ServiceDetail;
 use Illuminate\Http\Request;
@@ -44,7 +45,7 @@ class ServiceDetailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServiceDetailRequest $request)
     {
         $service = Service::find($request->service);
         if($service == null ){
@@ -57,11 +58,12 @@ class ServiceDetailController extends Controller
         $serviceDetail->price = $request->price;
         $serviceDetail->time = $request->time;
         $serviceDetail->description = $request->description;
-        $filename = "";
         if($request->file('image') != null){
-            $image = $request->file('image')->store('public/service-detail');
-            $arr_filename = explode("/",$image);
-            $filename = end($arr_filename);
+             $image = $request->file('image')->store('public/service-detail');
+             $arr_filename = explode("/",$image);
+             $filename = end($arr_filename);
+        }else{
+             $filename = 'default.png';
         }
         $serviceDetail->image = $filename;
         if($serviceDetail->save()){
@@ -106,7 +108,7 @@ class ServiceDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ServiceDetailRequest $request, $id)
     {
         $service = Service::find($request->service);
         if($service == null ){

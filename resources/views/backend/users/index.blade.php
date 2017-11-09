@@ -35,8 +35,8 @@
                             <tbody>
                             @if(count($users) == 0)
                                 <tr>
-                                    <td colspan="6">
-                                        NO USER TO SHOW
+                                    <td colspan="6" class="text-center text-blue">
+                                        <h4>NO USER TO SHOW</h4>
                                     </td>
                                 </tr>
                             @else

@@ -39,10 +39,8 @@
                             <!-- Image Field -->
                             <div class="col-sm-10 col-lg-offset-1">
                                 <label for="image"><h3>IMAGE</h3></label>
-                                <p><img id="image-show" src="{{ asset('/storage/default.png') }}" alt="image" class="img-responsive" width="100%"></p>
-                                <label for="image">Choose image from your computer</label>
                                 <input class="form-control" name="image" type="file" id="image" onchange="viewImage(this)">
-                                <br>
+                                <p><img id="image-show" src="{{ asset('/storage/default.png') }}" alt="image" class="img-responsive" width="100%"></p>
                             </div>
 
                             <div class="clearfix"></div>

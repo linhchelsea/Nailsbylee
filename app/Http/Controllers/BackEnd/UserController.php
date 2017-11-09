@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\Contact;
+use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,6 +16,7 @@ class UserController extends Controller
     function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('IsAdmin');
     }
     /**
      * Display a listing of the resource.
@@ -44,18 +47,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $user = new User();
         $user->name = $request->fullname;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->isAdmin = $request->isAdmin;
-        $password_confirmation = $request->password_confirmation;
-        if($user->password != $password_confirmation){
-            $request->session()->flash('fail','Password and Password Confirm are not the same!');
-            return redirect()->route('users.create');
-        }
         //kiem tra email co bi trong khong
         $user_checkEmail = User::where('email','=',$user->email)->first();
         if($user_checkEmail != null){
@@ -108,7 +106,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         $user = User::findOrFail($id);
 
