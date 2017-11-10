@@ -28,13 +28,17 @@
     </div>
     <div class="contact_grid">
         <div class="container">
+            <div class="col-md-6">
             @if($errors->count()>0)
-                <ul class="alert alert-danger" style="list-style-type: none">
+                <ul class="error" style="list-style-type: none">
                     @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li>{{$error}}</li>
                     @endforeach
                 </ul>
+
             @endif
+            </div>
+            <div class="clearfix"></div>
             @if(Session::has('success'))
                 <div class="alert" >
                     <p style="font-family: 'Tangerine', cursive; font-size: 2.8em;text-align: center;">{{ Session::get('success') }}</p>

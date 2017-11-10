@@ -186,6 +186,49 @@ class UserController extends Controller
 
     public function profile(Request $request)
     {
-        return view('backend.users.profile');
+        $user = User::findOrFail(Auth::user()->id);
+        return view('backend.users.profile', compact('user'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user = User::findOrFail(Auth::user()->id);
+
+        //Lay thong tin tu form
+        $user->name = $request->fullname;
+//        $user->isAdmin = $request->isAdmin;
+//        if($user->isAdmin > 1 || $user->isAdmin < 0){
+//            $request->session()->flash('fail', 'Position is invalid!');
+//            return redirect()->back();
+//        }
+        if($request->password != null){
+            if($request->password != $request->password_confirmation){
+                $request->session()->flash('fail','Password and Password Confirm are not the same!');
+                return redirect()->back();
+            }
+            $user->password = bcrypt($request->password);
+        }
+        if($request->file('avatar') != null){
+
+            if($user->avatar != 'avatar.png'){
+                //Xoa anh cu~
+                File::delete('storage/avatars/'.$user->avatar);
+            }
+            //Up anh moi
+            $image = $request->file('avatar')->store('public/avatars');
+            $arr_filename = explode("/",$image);
+            $filename = end($arr_filename);
+        }else{
+            $filename = $user->avatar;
+        }
+
+        $user->avatar = $filename;
+
+        if($user->save()) {
+            $request->session()->flash('success', 'Profile was updated successfully!');
+        }else{
+            $request->session()->flash('fail', 'Profile was updated successfully!');
+        }
+        return redirect()->route('profile');
     }
 }

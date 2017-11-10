@@ -20,6 +20,7 @@ Route::group(['prefix'=> 'admin','namespace'=>'BackEnd'],function (){
     Route::post('/replyContact','ContactController@replyContact')->name('replyContact');
     Route::post('/updateFeatureService','ServiceController@UpdateFeatureService')->name('updateFeatureService');
     Route::get('/index','HomeController@index')->name('index');
+    Route::POST('/updateProfile', 'UserController@updateProfile')->name('updateProfile');
 });
 Route::group(['namespace'=>'FrontEnd'], function (){
     Route::get('/','HomeController@index')->name('homepage');
