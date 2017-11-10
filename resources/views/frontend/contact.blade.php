@@ -28,17 +28,6 @@
     </div>
     <div class="contact_grid">
         <div class="container">
-            <div class="col-md-6">
-            @if($errors->count()>0)
-                <ul class="error" style="list-style-type: none">
-                    @foreach($errors->all() as $error)
-                        <li>{{$error}}</li>
-                    @endforeach
-                </ul>
-
-            @endif
-            </div>
-            <div class="clearfix"></div>
             @if(Session::has('success'))
                 <div class="alert" >
                     <p style="font-family: 'Tangerine', cursive; font-size: 2.8em;text-align: center;">{{ Session::get('success') }}</p>
@@ -47,12 +36,16 @@
             <form method="post" action="{{ route('contactStore') }}" accept-charset="UTF-8" class="contactForm">
                 {{ csrf_field() }}
                 <div class="col-sm-12 col-md-4 left_grid">
-                    <input type="text" class="text" name="Name" placeholder="Name" style="color: ">
+                    <input type="text" class="text" name="Name" placeholder="Name">
+                    <p class="error">{{$errors->first('Name')}}</p>
                     <input type="text" class="text" name="Email" placeholder="Email">
+                    <p class="error">{{$errors->first('Email')}}</p>
                     <input type="text" class="text" name="Phone" placeholder="Phone">
+                    <p class="error">{{$errors->first('Phone')}}</p>
                 </div>
                 <div class="col-sm-12 col-md-8 right_grid">
                     <textarea name="Message" placeholder="Message"></textarea>
+                    <p class="error">{{$errors->first('Message')}}</p>
                 </div>
                 <div class="form-submit1">
                     <input name="submit" type="submit" id="submit" value="Send Message">
