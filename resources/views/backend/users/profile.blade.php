@@ -24,19 +24,18 @@
                     <div class="alert alert-danger"><p><strong>{{ Session::get('fail') }}</strong></p></div>
                 @endif
                 <div class="row">
-                    <form method="POST" action="" accept-charset="UTF-8" id="user_update" class="userForm" enctype="multipart/form-data">
+                    <form method="POST" action="{{route('updateProfile')}}" accept-charset="UTF-8" id="user_update" class="userUpdateForm" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        <input type="hidden" name="_method" value="PUT">
                         <div class="form-group">
-                            <!-- Name Field -->
+                            <!-- Fullname Field -->
                             <div class="col-sm-6">
-                                <label for="name">Username</label>
-                                <p class="form-control">admin</p>
+                                <label for="fullname">Full name</label>
+                                <input class="form-control" name="fullname" type="text" id="fullname" value="{{$user->name}}">
                             </div>
                             <!-- Email Field -->
                             <div class="col-sm-6">
                                 <label for="email">Email</label>
-                                <p class="form-control">admin@gmail.com</p>
+                                <p class="form-control">{{$user->email}}</p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -56,31 +55,13 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group">
-                            <!-- Fullname Field -->
-                            <div class="col-sm-6">
-                                <label for="fullname">Full name</label>
-                                <input class="form-control" name="fullname" type="text" id="fullname" value="fghfghfghfghfghf">
-                            </div>
-                            <!-- Level Field -->
-                            <div class="col-sm-6">
-                                <label for="position">Position</label>
-                                <select name="position" id="position" class="form-control">
-                                    <option value="1">Admin</option>
-                                    <option value="0">User</option>
-                                </select>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="form-group">
                             <!-- Avatar Field -->
                             <div class="col-sm-6">
                                 <label for="avatar">Avatar</label>
                                 <input class="form-control" name="avatar" type="file" id="avatar" onchange="viewAvatar(this)">
                                 <br>
-                                <p><img id="avartar-img-show" src="{{ asset('/storage/avatars/avatar.png') }}" alt="avatar" class="img-responsive" width="200px" height="200px"></p>
+                                <p><img id="avartar-img-show" src="{{ asset('/storage/avatars/'.$user->avatar) }}" alt="avatar" class="img-responsive" style="height: 200px"></p>
                             </div>
-
-                            <div class="clearfix"></div>
                         </div>
                         <div class="form-group">
                             <!-- Submit Field -->
@@ -96,5 +77,4 @@
     </section>
 
 </div>
-<script src="{{ asset('backend.js') }}" tbackend.jsript"></script>
 @stop

@@ -174,7 +174,7 @@ $( document ).ready( function () {
         }
     });
 
-    $( ".contactFormasd" ).validate( {
+    $( ".contactForma" ).validate( {
         rules: {
             Name: {
                 required: true,
