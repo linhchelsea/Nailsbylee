@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\File;
 
 class PolishBrandController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -44,6 +48,11 @@ class PolishBrandController extends Controller
         $polishBrand->description = $request->description;
         $polishBrand->price = $request->price;
         if($request->file('image') != null){
+            $checkFile = self::CheckFileUpload($request->file('image')->getClientOriginalName());
+            if(!$checkFile){
+                $request->session()->flash('fail','Image format is invalid (jpg,jpeg,png,gif)!');
+                return redirect()->back();
+            }
             $image = $request->file('image')->store('public/polishbrand');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -82,6 +91,11 @@ class PolishBrandController extends Controller
         $polishbrand->description = $request->description;
         $polishbrand->price = $request->price;
         if($request->file('image') != null){
+            $checkFile = self::CheckFileUpload($request->file('image')->getClientOriginalName());
+            if(!$checkFile){
+                $request->session()->flash('fail','Image format is invalid (jpg,jpeg,png,gif)!');
+                return redirect()->back();
+            }
             if($polishbrand->image != 'default.png'){
                 //Xoa anh cu~
                 File::delete('storage/polishbrand/'.$polishbrand->image);
@@ -114,5 +128,13 @@ class PolishBrandController extends Controller
         $polishbrand->delete();
         $request->session()->flash('success','Delete successfully');
         return redirect()->back();
+    }
+    public static function CheckFileUpload($filename){
+        $arrFilename = explode('.',$filename);
+        $format = $arrFilename[count($arrFilename)-1];
+        if ($format == 'png' || $format == 'jpg' ||$format == 'jpeg' ||$format == 'gif' ){
+            return true;
+        }
+        return false;
     }
 }

@@ -46,6 +46,11 @@ class GalleryController extends Controller
         $gallery = new Gallery();
         $gallery->title = $request->title;
         if($request->file('image') != null){
+            $checkFile = self::CheckFileUpload($request->file('image')->getClientOriginalName());
+            if(!$checkFile){
+                $request->session()->flash('fail','Image format is invalid (jpg,jpeg,png,gif)!');
+                return redirect()->back();
+            }
             $image = $request->file('image')->store('public/gallery');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -86,6 +91,11 @@ class GalleryController extends Controller
         $gallery = Gallery::findOrFail($id);
         $gallery->title = $request->title;
         if($request->file('image') != null){
+            $checkFile = self::CheckFileUpload($request->file('image')->getClientOriginalName());
+            if(!$checkFile){
+                $request->session()->flash('fail','Image format is invalid (jpg,jpeg,png,gif)!');
+                return redirect()->back();
+            }
             if($gallery->image != 'default.png'){
                 //Xoa anh cu~
                 File::delete('storage/gallery/'.$gallery->image);
@@ -124,5 +134,13 @@ class GalleryController extends Controller
             $request->session()->flash('fail','Delete unsuccessfully!');
         }
         return redirect()->back();
+    }
+    public static function CheckFileUpload($filename){
+        $arrFilename = explode('.',$filename);
+        $format = $arrFilename[count($arrFilename)-1];
+        if ($format == 'png' || $format == 'jpg' ||$format == 'jpeg' ||$format == 'gif' ){
+            return true;
+        }
+        return false;
     }
 }
