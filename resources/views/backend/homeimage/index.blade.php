@@ -19,7 +19,7 @@
                             HOME IMAGE
                         </h3>
                         <div class="pull-right" style="margin: 0px 10px;">
-                            <a class="btn btn-success pull-right" href="{{ route('home-image.create') }}"><i class="glyphicon glyphicon-plus"></i> Add new image</a>
+                            <a class="btn btn-success pull-right" href="{{ route('home-image.create') }}"><i class="glyphicon glyphicon-plus"></i> New image</a>
                         </div>
                     </div>
                     <div class="box-body table-responsive">
@@ -37,7 +37,7 @@
                                     <tr>
                                         <td class="text-center" style="width: 50%">{{ $homeImage->title }}</td>
                                         <td class="text-center">
-                                             <img src="{{ asset('/storage/home-image/'.$homeImage->name) }}" alt="image" width="200px">
+                                             <img src="{{ asset('/storage/home-image/'.$homeImage->name) }}" alt="image" width="200px" class="indexImage">
                                         </td>
                                         <td class="text-center">
                                             <form method="POST" action="{{ route('home-image.destroy', $homeImage->id) }}" accept-charset="UTF-8">

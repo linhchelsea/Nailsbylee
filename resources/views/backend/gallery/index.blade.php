@@ -19,7 +19,7 @@
                             Gallery
                         </h3>
                         <div class="pull-right" style="margin: 0px 10px;">
-                            <a class="btn btn-success pull-right" href="{{ route('gallery.create') }}"><i class="glyphicon glyphicon-plus"></i> Add new image</a>
+                            <a class="btn btn-success pull-right" href="{{ route('gallery.create') }}"><i class="glyphicon glyphicon-plus"></i> New image</a>
                         </div>
                     </div>
                     <div class="box-body table-responsive">
@@ -37,7 +37,7 @@
                                     <tr>
                                         <td class="text-center" style="width: 50%">{{ $image->title }}</td>
                                         <td class="text-center">
-                                             <img src="{{ asset('/storage/gallery/'.$image->image) }}" alt="image" width="200px">
+                                             <img src="{{ asset('/storage/gallery/'.$image->image) }}" alt="image" width="200px"  class="indexImage"    >
                                         </td>
                                         <td class="text-center">
                                             <form method="POST" action="{{ route('gallery.destroy', $image->id) }}" accept-charset="UTF-8">

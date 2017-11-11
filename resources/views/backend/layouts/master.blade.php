@@ -2,7 +2,7 @@
 
 <header class="main-header">
 
-    <a href="" class="logo">
+    <a href="{{ route('index') }}" class="logo">
         <span class="logo-mini"><b>L</b></span>
         <span class="logo-lg"><b>Nails By Lee</b></span>
     </a>
