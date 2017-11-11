@@ -36,6 +36,11 @@ class HomeImageController extends Controller
         $homeImage = new HomeImage();
         $homeImage->title = $request->title;
         if($request->file('image') != null){
+            $checkFile = self::CheckFileUpload($request->file('image')->getClientOriginalName());
+            if(!$checkFile){
+                $request->session()->flash('fail','Image format is invalid (jpg,jpeg,png,gif)!');
+                return redirect()->back();
+            }
             $image = $request->file('image')->store('public/home-image');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -63,6 +68,11 @@ class HomeImageController extends Controller
         $homeImage = HomeImage::findOrFail($id);
         $homeImage->title = $request->title;
         if($request->file('image') != null){
+            $checkFile = self::CheckFileUpload($request->file('image')->getClientOriginalName());
+            if(!$checkFile){
+                $request->session()->flash('fail','Image format is invalid (jpg,jpeg,png,gif)!');
+                return redirect()->back();
+            }
             if($homeImage->name != 'default.png'){
                 //Xoa anh cu~
                 File::delete('storage/home-image/'.$homeImage->name);
@@ -95,5 +105,13 @@ class HomeImageController extends Controller
             $request->session()->flash('fail','Delete unsuccessfully!');
         }
         return redirect()->back();
+    }
+    public static function CheckFileUpload($filename){
+        $arrFilename = explode('.',$filename);
+        $format = $arrFilename[count($arrFilename)-1];
+        if ($format == 'png' || $format == 'jpg' ||$format == 'jpeg' ||$format == 'gif' ){
+            return true;
+        }
+        return false;
     }
 }

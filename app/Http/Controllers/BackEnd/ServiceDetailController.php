@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\File;
 
 class ServiceDetailController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -59,6 +63,11 @@ class ServiceDetailController extends Controller
         $serviceDetail->time = $request->time;
         $serviceDetail->description = $request->description;
         if($request->file('image') != null){
+            $checkFile = self::CheckFileUpload($request->file('image')->getClientOriginalName());
+            if(!$checkFile){
+                $request->session()->flash('fail','Image format is invalid (jpg,jpeg,png,gif)!');
+                return redirect()->back();
+            }
              $image = $request->file('image')->store('public/service-detail');
              $arr_filename = explode("/",$image);
              $filename = end($arr_filename);
@@ -122,6 +131,11 @@ class ServiceDetailController extends Controller
         $serviceDetail->time = $request->time;
         $serviceDetail->description = $request->description;
         if($request->file('image') != null){
+            $checkFile = self::CheckFileUpload($request->file('image')->getClientOriginalName());
+            if(!$checkFile){
+                $request->session()->flash('fail','Image format is invalid (jpg,jpeg,png,gif)!');
+                return redirect()->back();
+            }
             //xoa anh cu~
             if($serviceDetail->image != 'default.png') {
                 File::delete('storage/service-detail/' . $serviceDetail->image);
@@ -160,5 +174,13 @@ class ServiceDetailController extends Controller
             $request->session()->flash('fail','Delete unsuccessfully!');
         }
         return redirect()->route('service-detail.index');
+    }
+    public static function CheckFileUpload($filename){
+        $arrFilename = explode('.',$filename);
+        $format = $arrFilename[count($arrFilename)-1];
+        if ($format == 'png' || $format == 'jpg' ||$format == 'jpeg' ||$format == 'gif' ){
+            return true;
+        }
+        return false;
     }
 }

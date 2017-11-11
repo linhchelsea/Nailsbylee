@@ -16,11 +16,11 @@ Route::group(['prefix'=> 'admin','namespace'=>'BackEnd'],function (){
     Route::post('about-us', 'AboutUsController@aboutUsSaveVideo')->name('aboutUsSaveVideo');
     Route::get('information', 'InformationController@index')->name('information');
     Route::put('information', 'InformationController@update')->name('inforUpdate');
-    Route::get('profile', 'UserController@profile')->name('profile');
     Route::post('/replyContact','ContactController@replyContact')->name('replyContact');
     Route::post('/updateFeatureService','ServiceController@UpdateFeatureService')->name('updateFeatureService');
     Route::get('/index','HomeController@index')->name('index');
-    Route::POST('/updateProfile', 'UserController@updateProfile')->name('updateProfile');
+    Route::get('profile', 'ProfileController@profile')->name('profile');
+    Route::POST('/updateProfile', 'ProfileController@updateProfile')->name('updateProfile');
 });
 Route::group(['namespace'=>'FrontEnd'], function (){
     Route::get('/','HomeController@index')->name('homepage');

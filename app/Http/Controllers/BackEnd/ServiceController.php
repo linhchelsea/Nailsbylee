@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\File;
 
 class ServiceController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -46,6 +50,11 @@ class ServiceController extends Controller
         $service->preview = $request->preview;
         $service->atHome = 0;
         if($request->file('image') != null){
+            $checkFile = self::CheckFileUpload($request->file('image')->getClientOriginalName());
+            if(!$checkFile){
+                $request->session()->flash('fail','Image format is invalid (jpg,jpeg,png,gif)!');
+                return redirect()->back();
+            }
             $image = $request->file('image')->store('public/service');
             $arr_filename = explode("/",$image);
             $filename = end($arr_filename);
@@ -94,6 +103,11 @@ class ServiceController extends Controller
         $service->description = $request->description;
         $service->preview = $request->preview;
         if($request->file('image') != null){
+            $checkFile = self::CheckFileUpload($request->file('image')->getClientOriginalName());
+            if(!$checkFile){
+                $request->session()->flash('fail','Image format is invalid (jpg,jpeg,png,gif)!');
+                return redirect()->back();
+            }
             //xoa anh cu~
             if($service->image != 'default.png') {
                 File::delete('storage/service/' . $service->image);
@@ -152,5 +166,13 @@ class ServiceController extends Controller
         $service = Service::findOrFail($id);
         $service->atHome = !($service->atHome);
         $service->save();
+    }
+    public static function CheckFileUpload($filename){
+        $arrFilename = explode('.',$filename);
+        $format = $arrFilename[count($arrFilename)-1];
+        if ($format == 'png' || $format == 'jpg' ||$format == 'jpeg' ||$format == 'gif' ){
+            return true;
+        }
+        return false;
     }
 }

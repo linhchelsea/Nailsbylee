@@ -60,14 +60,6 @@
                                 <br>
                                 <p><img id="avartar-img-show" src="{{ asset('/storage/avatars/'.$user->avatar) }}" alt="avatar" class="img-responsive" width="200px" height="200px"></p>
                             </div>
-                            <!-- Level Field -->
-                            <div class="col-sm-6">
-                                <label for="position">Position</label>
-                                <select name="isAdmin" id="position" class="form-control">
-                                    <option value="1" @if($user->level == 1) selected="selected" @endif>Admin</option>
-                                    <option value="0" @if($user->level == 0) selected="selected" @endif>User</option>
-                                </select>
-                            </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group">

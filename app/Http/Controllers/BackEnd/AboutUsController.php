@@ -7,7 +7,6 @@ use App\Http\Requests\AboutUsRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
-
 class AboutUsController extends Controller
 {
     function __construct()
@@ -31,7 +30,6 @@ class AboutUsController extends Controller
             if($aboutUs->video != 'about_us.mp4'){
                 //Xoa video cu~
                 File::delete('storage/videos/'.$aboutUs->video);
-
             }
             $video = $request->file('video')->store('public/videos');
             $arr_filename = explode("/",$video);
@@ -53,6 +51,11 @@ class AboutUsController extends Controller
             return redirect()->back();
         }
         if($request->file('image') != null){
+            $checkFile = self::CheckFileUpload($request->file('image')->getClientOriginalName());
+            if(!$checkFile){
+                $request->session()->flash('fail','Image format is invalid (jpg,jpeg,png,gif)!');
+                return redirect()->back();
+            }
             if($aboutUs->image != 'aboutus.jpg'){
                 //Xoa anh cu~
                 File::delete('storage/aboutUs/'.$aboutUs->image);
@@ -71,5 +74,13 @@ class AboutUsController extends Controller
             $request->session()->flash('fail','Update unsuccessfully!');
         }
         return redirect()->route('about-us');
+    }
+    public static function CheckFileUpload($filename){
+        $arrFilename = explode('.',$filename);
+        $format = $arrFilename[count($arrFilename)-1];
+        if ($format == 'png' || $format == 'jpg' ||$format == 'jpeg' ||$format == 'gif' ){
+            return true;
+        }
+        return false;
     }
 }

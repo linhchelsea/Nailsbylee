@@ -52,17 +52,6 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group">
-                            <!-- Level Field -->
-                            <div class="col-sm-6">
-                                <label for="position">Position</label>
-                                <select name="isAdmin" id="level" class="form-control">
-                                    <option value="1">Admin</option>
-                                    <option value="0" selected>User</option>
-                                </select>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="form-group">
                             <!-- Submit Field -->
                             <div class="col-sm-12">
                                 <button class="btn btn-warning" type="button" onclick="window.location='{{ url()->previous() }}';" style="margin-left: 5px;"><i class="fa fa-reply-all" aria-hidden="true"></i> Back</button>
