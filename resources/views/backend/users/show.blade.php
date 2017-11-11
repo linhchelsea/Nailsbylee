@@ -13,7 +13,7 @@
                             User detail
                         </h3>
                         <div class="pull-right" style="margin: 0px 10px;">
-                            <a class="btn btn-success pull-right" href="{{ route('users.create') }}"><i class="glyphicon glyphicon-plus"></i> Create new user</a>
+                            <a class="btn btn-success pull-right" href="{{ route('users.create') }}"><i class="glyphicon glyphicon-plus"></i> New user</a>
                         </div>
                     </div>
                     <div class="box-body table-responsive">

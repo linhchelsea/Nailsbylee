@@ -19,7 +19,7 @@
                             GIFT CARDS
                         </h3>
                         <div class="pull-right" style="margin: 0px 10px;">
-                            <a class="btn btn-success pull-right" href="{{ route('gift-card.create') }}"><i class="glyphicon glyphicon-plus"></i> Add new gift card</a>
+                            <a class="btn btn-success pull-right" href="{{ route('gift-card.create') }}"><i class="glyphicon glyphicon-plus"></i> New gift card</a>
                         </div>
                     </div>
                     <div class="box-body table-responsive">
@@ -37,7 +37,7 @@
                                     <tr>
                                         <td class="text-center" style="width: 50%">{{ $giftCard->title }}</td>
                                         <td class="text-center">
-                                             <img src="{{ asset('/storage/gift-card/'.$giftCard->image) }}" alt="image" width="200px">
+                                             <img src="{{ asset('/storage/gift-card/'.$giftCard->image) }}" alt="image" width="200px"  class="indexImage">
                                         </td>
                                         <td class="text-center">
                                             <form method="POST" action="{{ route('gift-card.destroy', $giftCard->id) }}" accept-charset="UTF-8">

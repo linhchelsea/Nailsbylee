@@ -47,7 +47,7 @@
                                         <td class="text-center">{{ $service->price }} $</td>
                                         <td class="text-center">{{ $service->time }}</td>
                                         <td class="text-center">
-                                            <img src="{{ asset('/storage/service-detail/'.$service->image) }}" alt="image" id="service" width="200px" height="100px">
+                                            <img src="{{ asset('/storage/service-detail/'.$service->image) }}" alt="image" id="service" width="200px" height="100px" class="indexImage">
                                         </td>
                                         <td class="text-center">
                                             <form method="POST" action="{{ route('service-detail.destroy', $service->id) }}" accept-charset="UTF-8">

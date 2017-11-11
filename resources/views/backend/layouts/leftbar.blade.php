@@ -66,7 +66,7 @@
         </li>
         <li class="{{ Request::is('admin/review*')? 'active' : '' }}">
             <a href="{{ route('review.index') }}">
-                <i class="fa fa-envelope"></i> <span>Customer Review</span>
+                <i class="fa fa-reply" aria-hidden="true"></i> <span>Customer Review</span>
             </a>
         </li>
     </ul>

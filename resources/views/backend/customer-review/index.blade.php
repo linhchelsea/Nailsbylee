@@ -39,7 +39,7 @@
                                         <td class="text-center" style="width: 20%">{{ $review->name }}</td>
                                         <td style="width: 40%">{{ $review->content }}</td>
                                         <td class="text-center">
-                                             <img src="{{ asset('/storage/reviews/'.$review->image) }}" alt="image" id="customerImage">
+                                             <img src="{{ asset('/storage/reviews/'.$review->image) }}" alt="image" class="indexImage">
                                         </td>
                                         <td class="text-center">
                                             <form method="POST" action="{{ route('review.destroy', $review->id) }}" accept-charset="UTF-8">
