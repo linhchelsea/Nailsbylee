@@ -10,7 +10,7 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $galleries = Gallery::paginate(8);
+        $galleries = Gallery::orderBy('id','DESC')->paginate(8);
         $information = Information::findOrFail(1);
         return view('frontend.gallery',compact('galleries', 'information'));
     }
