@@ -21,7 +21,7 @@
             </div>
             <div class="clearfix"></div>
             <div class=" col-md-12 grid_4">
-                <p class="about_detail" style="text-align: justify;">
+                <p class="about_detail">
                     {!! $aboutUs->detail !!}
                 </p>
             </div>

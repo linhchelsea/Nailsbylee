@@ -5,16 +5,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Nails By Lee</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/ionicons.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/select2.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/AdminLTE.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin/css/backend.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/ionicons.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/select2.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/AdminLTE.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/css/backend.css') }}">
 
-        <link rel="stylesheet" href="{{ asset('admin/css/skin-blue.min.css') }}">
-        <script src="{{ asset('admin/js/jquery.min.js') }}" type="text/javascript"></script>
-        <script type="text/javascript" src="{{ asset('/admin/js/ckeditor/ckeditor.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('backend/css/skin-blue.min.css') }}">
+        <script src="{{ asset('backend/js/jquery.min.js') }}" type="text/javascript"></script>
+        <script type="text/javascript" src="{{ asset('/backend/js/ckeditor/ckeditor.js') }}"></script>
 
         <style>
             .error{

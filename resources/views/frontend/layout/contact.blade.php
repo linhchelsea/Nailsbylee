@@ -23,6 +23,6 @@
             <div class="clearfix"></div>
         </form>
     </div>
-    <script src="{{ asset('admin/js/jquery.validate.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('admin/js/validate.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backend/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('backend/js/validate.js') }}" type="text/javascript"></script>
 </div>

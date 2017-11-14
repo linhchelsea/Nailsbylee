@@ -3,7 +3,7 @@
 
 <div class="content-wrapper">
     <section class="content">
-        <script src="{{ asset('admin/js/function/featureservice.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('backend/js/function/featureservice.js') }}" type="text/javascript"></script>
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-12">

@@ -183,7 +183,7 @@
 
 @section('script')
     <!-- ChartJS 1.0.1 -->
-    <script src="{{ asset('admin/js/Chart.min.js') }}"></script>
+    <script src="{{ asset('backend/js/Chart.min.js') }}"></script>
     <script>
         $(function() {
             var pieChartCanvas = $("#pieChart").get(0).getContext("2d");

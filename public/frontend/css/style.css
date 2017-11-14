@@ -67,8 +67,8 @@ body a{
 	padding:0px 0 0;
 }
 ul {
-	padding: 0;
-	list-style: none;
+	/*padding: 0;*/
+	/*list-style: none;*/
 }
 
 
@@ -723,7 +723,7 @@ display:inline-block;
   font-size: 1.1em;
   margin: 1em 0 0 0;
 }
-.grid_4 p{
+.grid_4{
 	font-size: 0.85em;
     line-height: 1.8em;
     color: #555;
@@ -1833,8 +1833,7 @@ nav.navScroll a.buy{
 /*-- Icons --*/
 
 .about_detail{
-    font-size: 1.1em !important;
-    font-weight: 300 !important;
+    margin-top: 15px;
 }
 
 /*Custom size of screen when navbar collapse*/

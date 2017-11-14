@@ -7,16 +7,16 @@
   <title>Nails by Lee - Login</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/css/bootstrap.min.css') }}">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('admin/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/css/font-awesome.min.css') }}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ asset('admin/css/ionicons.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/css/ionicons.min.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('admin/css/AdminLTE.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/css/AdminLTE.min.css') }}">
   <!-- iCheck -->
-  <link rel="stylesheet" href="{{ asset('admin/css/blue.css') }}">
-  <link rel="stylesheet" href="{{ asset('admin/css/login.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/css/blue.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/css/login.css') }}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,7 +24,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <script src="{{ asset('admin/js/function/login.js') }}"></script>
+  <script src="{{ asset('backend/js/function/login.js') }}"></script>
 
   <![endif]-->
 </head>
@@ -56,11 +56,11 @@
     <div class="posted-by">Designed by: Thuan & Linh</div>
 </div>
 
-<script src="{{ asset('admin/js/jquery.min.js') }}"></script>
-<script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('admin/js/icheck.min.js') }}"></script>
+<script src="{{ asset('backend/js/jquery.min.js') }}"></script>
+<script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('backend/js/icheck.min.js') }}"></script>
 
 <!-- AdminLTE App -->
-<script src="{{ asset('admin/js/app.min.js') }}"></script>
+<script src="{{ asset('backend/js/app.min.js') }}"></script>
 </body>
 </html>
